@@ -1,10 +1,18 @@
 const app = Vue.createApp({
     data(){
         return {
-            title: "hello himel",
-            linkGoTo: "https://vuejs.org/guide/essentials/application.html#mounting-the-app"
+           count:1,
         }
-    }
+    },
+    methods: {
+        increment(){
+            console.log("hell");
+            this.count = this.count + 1;
+        },
+        decrement(){
+            this.count = this.count - 1;
+        }
+    },
 });
 app.mount('#app');
   
