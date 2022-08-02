@@ -2,7 +2,8 @@ const app = Vue.createApp({
     data(){
         return {
            count:1,
-           name: ''
+           name: '',
+           lname:''
         }
     },
     methods: {
