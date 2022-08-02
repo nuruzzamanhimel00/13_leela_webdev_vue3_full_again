@@ -9,7 +9,16 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    
+    <div class="row">
+        <div class="col-md-12">
+            <h2>Post Data</h2>
+            <br>
+            <div id="app">
+                <h2>{{ title }}</h2>
+                <a v-bind:href="linkGoTo" target="__blank">Vuejs go to the link</a>
+            </div>
+        </div>
+    </div>
 
     <script src="https://unpkg.com/vue@3"></script>
     <script src="app.js" ></script>
