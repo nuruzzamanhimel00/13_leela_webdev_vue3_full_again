@@ -17,7 +17,7 @@
                    <a href="" class="btn btn-primary" v-on:click.prevent="decrement()" >Decrement</a>
 
                    <br>
-                   {{ count }}
+                 <h1>  {{ count }}</h1>
 
                    <div class="form-group">
                     <label for="name">Name</label>
@@ -29,6 +29,12 @@
                   </div>
                   <p>Enter your name: {{ name }} - {{ lname }}</p>
 
+                  <div>
+                    <form v-on:submit.prevent="submitForm()" >
+                        <input type="text" class="form-control">
+                        <input type="submit" class="btn btn-success">
+                    </form>
+                  </div>
                 </div>
             </div>
         </div>    
