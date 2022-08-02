@@ -4,7 +4,7 @@ const app = Vue.createApp({
            count:1,
            name: '',
            lname:'',
-           confirmName: ''
+
         }
     },
     methods: {
@@ -15,14 +15,15 @@ const app = Vue.createApp({
         decrement(){
             this.count = this.count - 1;
         },
-        setName(event, lastName){
-            this.name = event.target.value + " "+ lastName;
+        setName(event){
+            this.name = event.target.value ;
         },
         submitForm(){
             alert('form submitted');
         },
-        confirmOurName(event){
-            this.confirmName = event.target.value;
+        outputFullname(){
+            console.log("Executing full name");
+            return this.name;
         }
     },
 });

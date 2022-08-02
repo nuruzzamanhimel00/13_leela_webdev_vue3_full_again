@@ -19,19 +19,22 @@
                    <br>
                  <h1>  {{ count }}</h1>
 
-                   <div class="form-group">
+                   <!-- <div class="form-group">
                     <label for="name">First name</label>
                     <input type="text" class="form-control" id="name"
-                     v-on:input="setName($event, 'web DEV')"
-                    v-on:keyup.enter="confirmOurName($event)"
+                      v-bind:value="name"
+                      v-on:input="setName($event)"
+                    >
+                  </div> -->
+
+                  <div class="form-group">
+                    <label for="name">First name</label>
+                    <input type="text" class="form-control" id="name"
+                     v-model="name"
                     >
                   </div>
-                  <div class="form-group">
-                    <label for="name">Last name</label>
-                    <input type="text" class="form-control" id="name" v-model.lazy="lname" >
-                  </div>
-                  <p>Enter your name: {{ name }} - {{ lname }}</p>
-                  <p>COnfirm: --- {{ confirmName }}</p>
+                  <p>Enter your name:-- {{ outputFullname() }}</p>
+           
 
                   <div>
                     <form v-on:submit.prevent="submitForm()" >
