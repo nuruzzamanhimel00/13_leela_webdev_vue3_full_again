@@ -4,8 +4,17 @@ const app = Vue.createApp({
            count:1,
            name: '',
            lname:'',
+        //    fullName:''
 
         }
+    },
+    watch:{
+        // name(){
+        //     this.fullName = this.name + " " + this.lname;
+        // },
+        // lname(){
+        //     this.fullName = this.name + " " + this.lname;
+        // },
     },
     computed:{
         //computed property
