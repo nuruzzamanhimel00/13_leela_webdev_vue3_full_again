@@ -7,9 +7,20 @@ const app = Vue.createApp({
 
         }
     },
+    computed:{
+        //computed property
+        fullName(){
+            console.log("Executing full name");
+            return this.name + " " + "web dev";
+        }
+    },
     methods: {
+        outputFullname(){
+            console.log("Executing full name");
+            return this.name + " " + "web dev";
+        },
         increment(){
-            console.log("hell");
+            console.log("increment");
             this.count = this.count + 1;
         },
         decrement(){
@@ -21,10 +32,7 @@ const app = Vue.createApp({
         submitForm(){
             alert('form submitted');
         },
-        outputFullname(){
-            console.log("Executing full name");
-            return this.name;
-        }
+        
     },
 });
 app.mount('#app');
