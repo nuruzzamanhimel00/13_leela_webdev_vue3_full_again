@@ -36,9 +36,13 @@
                       </div>
 
                       <ul class="list-group" v-if="hobbies.length > 0">
-                          <li v-for="(value, key) in hobbies" :key="key" class="list-group-item">
+                          <li v-for="(value, key) in hobbies" :key="key" class="list-group-item"
+                          @click="onRemove(key)"
+                          >
 
-                            {{ value }}
+                            {{ key }} --- {{ value }}
+                            <input type="text"  class="form-control">
+                           
                           </li>
                           
                       </ul>

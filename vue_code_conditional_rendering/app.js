@@ -17,6 +17,9 @@ const app = Vue.createApp({
     methods: {
         onHobbySubmit(){
             this.hobbies.push(this.enteredHobbyValue);
+        },
+        onRemove(key){
+            this.hobbies.splice(key,1);
         }
     },
 });
