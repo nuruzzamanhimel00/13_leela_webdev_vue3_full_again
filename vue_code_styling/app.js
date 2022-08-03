@@ -9,12 +9,12 @@ const app = Vue.createApp({
     methods: {
        onBoxSelect(box){
         if(box == 'A'){
-            this.boxASelect = true;
+            this.boxASelect = !this.boxASelect ;
         }else  if(box == 'B'){
-            this.boxBSelect = true;
+            this.boxBSelect = !this.boxBSelect;
         }
         else  if(box == 'C'){
-            this.boxCSelect = true;
+            this.boxCSelect = !this.boxCSelect;
         }
        }
     },
