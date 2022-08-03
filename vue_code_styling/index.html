@@ -38,12 +38,20 @@
         <br>
         <!-- ######################## class #######################  -->
         <div class="flex">
+          <!-- // computed property .....................######## -->
           <div class="box"
-          :class="boxASelect ? 'active' : '' "
+          :class="boxAclass"
           @click="onBoxSelect('A')"></div>
-          <div class="box"
+                 <!-- // computed property .....................######## -->
+
+          <!-- <div class="box"
+          :class="{active:  boxBSelect , 'class2': true}"
+          @click="onBoxSelect('B')"></div> -->
+
+          <div class="box box1 box2"
           :class="{active:  boxBSelect , 'class2': true}"
           @click="onBoxSelect('B')"></div>
+
           <div class="box"
           :class="{active:  boxCSelect, 'class2': true}"
           @click="onBoxSelect('C')"></div>
