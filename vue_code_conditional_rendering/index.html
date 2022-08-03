@@ -36,8 +36,17 @@
                       </div>
 
                       <ul class="list-group" v-if="hobbies.length > 0">
-                          <li class="list-group-item">Hobby1</li>
-                          <li class="list-group-item">Hobby2</li>
+                          <li v-for="(value, key) in hobbies" :key="key" class="list-group-item">
+
+                            {{ value }}
+                          </li>
+                          
+                      </ul>
+
+                      <ul>
+                        <li v-for="(value, key) in userDetails" :key="key">
+                            {{ key }} -- {{ value }}
+                        </li>
                       </ul>
                   </div>
               </div>
