@@ -9,48 +9,26 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div id="app">
-        <div class="container"  >
-            <div class="row">
-                <div class="col-md-12">
-                   <a href="" class="btn btn-primary" v-on:click.prevent="increment()" >Increment</a> &nbsp;
-                   <a href="" class="btn btn-primary" v-on:click.prevent="decrement()" >Decrement</a>
+    <div class="container">
+        <iv id="app">
+            <h2>{{message}}</h2>
+            <h2>{{data.commonMessage}}</h2>
 
-                   <br>
-                 <h1>  {{ count }}</h1>
+            <div>
+                <input type="text" ref="userText" />
+                <button @click="setText">Set Text</button>
 
-                   <!-- <div class="form-group">
-                    <label for="name">First name</label>
-                    <input type="text" class="form-control" id="name"
-                      v-bind:value="name"
-                      v-on:input="setName($event)"
-                    >
-                  </div> -->
-
-                  <div class="form-group">
-                    <label for="name">First name</label>
-                    <input type="text" class="form-control" id="name"
-                     v-model="name"
-                    >
-                  </div>
-                  <!-- <div class="form-group">
-                    <label for="name">Last name</label>
-                    <input type="text" class="form-control" id="name"
-                     v-model="lname"
-                    >
-                  </div> -->
-                  <p>Enter your name:-- {{ fullName }}</p>
-           
-
-                  <div>
-                    <form v-on:submit.prevent="submitForm()" >
-                        <input type="text" class="form-control">
-                        <input type="submit" class="btn btn-success">
-                    </form>
-                  </div>
-                </div>
+                <div>{{textMessage}}</div>
             </div>
-        </div>    
+        </iv>
+
+        <hr />
+        <h1>App2 Instance</h1>
+        <div id="app2">
+            <h2>{{anotherMessage}}</h2>
+            <h2>{{data.commonMessage}}</h2>
+            <a href="" @click.prevent="changeMessage()">Change common message</a>
+        </div>
     </div>
     <script src="https://unpkg.com/vue@3"></script>
     <script src="app.js" ></script>

@@ -1,48 +1,37 @@
-const app = Vue.createApp({
-    data(){
-        return {
-           count:1,
-           name: '',
-           lname:'',
-        //    fullName:''
+const commonData = {
+    commonMessage: 'This is the common message',
+};
 
-        }
-    },
-    watch:{
-        // name(){
-        //     this.fullName = this.name + " " + this.lname;
-        // },
-        // lname(){
-        //     this.fullName = this.name + " " + this.lname;
-        // },
-    },
-    computed:{
-        //computed property
-        fullName(){
-            console.log("Executing full name");
-            return this.name + " " + "web dev";
-        }
+const app = Vue.createApp({
+    data() {
+        return {
+            message: 'Hello world',
+            data: commonData,
+            textMessage: '',
+        };
     },
     methods: {
-        outputFullname(){
-            console.log("Executing full name");
-            return this.name + " " + "web dev";
-        },
-        increment(){
-            console.log("increment");
-            this.count = this.count + 1;
-        },
-        decrement(){
-            this.count = this.count - 1;
-        },
-        setName(event){
-            this.name = event.target.value ;
-        },
-        submitForm(){
-            alert('form submitted');
-        },
-        
+       
+        setText(){
+           this.textMessage = (this.$refs.userText.value);
+        }
     },
 });
+
 app.mount('#app');
-  
+
+const app2 = Vue.createApp({
+    data() {
+        return {
+            anotherMessage: 'Hello another world',
+            data: commonData,
+        };
+    },
+    methods: {
+        changeMessage() {
+            this.data.commonMessage = 'Changed the message';
+        },
+    },
+});
+
+app2.mount('#app2');
