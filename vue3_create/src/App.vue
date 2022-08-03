@@ -1,26 +1,42 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <h2>Posts</h2>
+          <compSinglePost />
+        </div>
+      </div>
+    </div>
+  </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
 
-export default {
-  name: 'App',
-  components: {
-    HelloWorld
+  import compSinglePost from "./components/SinglePost.vue"
+
+  export default{
+    data(){
+      return{
+        posts:[
+          {
+            title:"title number one",
+            description: 'title number onetitle number onetitle number onetitle number onetitle number onetitle number onetitle number one'
+          },
+          {
+            title:"title number two",
+            description: 'title number twotitle number twotitle number twotitle number twotitle number twotitle number twotitle number two'
+          }
+        ]
+      }
+    },
+    components:{
+      compSinglePost,
+    },
+  
   }
-}
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+
 </style>
