@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div :class="{'background-gray' : isActive }" class="p-2">
         <h3>{{ post.title }}</h3>
         <p> {{ post.description }} {{ isActive }} </p>
         <a href="" @click.prevent="changeTitle()" >Change Title</a>
@@ -8,10 +8,27 @@
 
 <script>
 export default {
-    props:['data','isActive'],
+    // props:['postData','isActive'],
+    props:{
+        postData:{
+            type: Object,
+            required: true,
+            default: function(){
+                return {
+                    title:"title number one",
+                    description: 'this is desciption here'
+                }
+            }
+        },
+        isActive:{
+            type: Number,
+            required: false,
+            default: 1
+        }
+    },
     data() {
         return {
-            post: this.data,
+            post: this.postData,
         }
     },
     methods: {
@@ -25,5 +42,8 @@ export default {
 <style scoped>
     h3{
         color:red;
+    }
+    .background-gray{
+        background-color: rgb(175, 169, 169);
     }
 </style>
