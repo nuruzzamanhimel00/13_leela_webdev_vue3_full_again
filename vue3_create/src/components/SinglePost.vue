@@ -9,6 +9,7 @@
 <script>
 export default {
     // props:['postData','isActive'],
+    emits:['title-change'],
     props:{
         postData:{
             type: Object,
@@ -28,12 +29,13 @@ export default {
     },
     data() {
         return {
-            post: this.postData,
+            post: {...this.postData},
         }
     },
     methods: {
         changeTitle(){
             this.post.title = "change the title";
+            this.$emit("title-change",this.post);
         }
     },
 }
