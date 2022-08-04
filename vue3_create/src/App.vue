@@ -11,11 +11,17 @@
               > </select-component>
           </div>
             <h2>Posts</h2>
+            <!-- ################################################## -->
+            <div class="my-3 p-2" style="background-color:green;">
+              <p>App/Main component:- {{ user }}</p>
+              <a href="" @click.prevent="changeUser()" >change user name</a>
+            </div>
+             <!-- ################################################## -->
             <div v-for="(post, key) in posts"  :key="key">
             <br>
               <a href="" @click.prevent="onChangeTitle(key)" >Change Title App vue parent</a>
 
-              <compSinglePost :post-data="post" :isActive="1" @title-change="onTitleChange($event)" />
+              <compSinglePost :post-data="post" :user="user" :isActive="1" @title-change="onTitleChange($event)" />
 
             </div>
         </div>
@@ -34,6 +40,7 @@
 </template>
 
 <script>
+  import { computed } from 'vue'
 
   import compSinglePost from "./components/SinglePost.vue"
   import SelectComponent from './components/SelectComponent.vue'
@@ -51,7 +58,13 @@
             title:"title number two",
             description: 'title number twotitle number twotitle number twotitle number twotitle number twotitle number twotitle number two'
           }
-        ]
+        ],
+        user: "Md. Nuruzzaman Himel"
+      }
+    },
+    provide(){
+      return {
+        user: computed(() => this.user),
       }
     },
     components:{
@@ -59,6 +72,9 @@
       SelectComponent
     },
     methods: {
+      changeUser(){
+        this.user = "Update Md Nurezzaman Himel";
+      },
       onChangeTitle(key){
         this.posts[key].title = 'change title in the parent';
       },

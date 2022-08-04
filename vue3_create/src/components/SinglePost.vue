@@ -1,12 +1,16 @@
 <template>
     <div :class="{'background-gray' : isActive }" class="p-2">
-        <h3>{{ post.title }}</h3>
+        <single-post :user="user" />
+        <h3>{{ post.title }}  </h3>
         <p> {{ post.description }} {{ isActive }} </p>
         <a href="" @click.prevent="changeTitle()" >Change Title</a>
     </div>
 </template>
 
 <script>
+
+import SinglePost from './PostUser.vue'
+
 export default {
     // props:['postData','isActive'],
     emits:['title-change'],
@@ -25,7 +29,8 @@ export default {
             type: Number,
             required: false,
             default: 1
-        }
+        },
+        user: String
     },
     data() {
         return {
@@ -38,6 +43,9 @@ export default {
             this.$emit("title-change",this.post);
         }
     },
+    components:{
+        SinglePost
+    }
 }
 </script>
 
