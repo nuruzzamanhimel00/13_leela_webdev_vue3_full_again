@@ -1,19 +1,29 @@
 <template>
     <div>
         <h3>{{ post.title }}</h3>
-        <p> {{ post.description }} </p>
+        <p> {{ post.description }} {{ isActive }} </p>
+        <a href="" @click.prevent="changeTitle()" >Change Title</a>
     </div>
 </template>
 
 <script>
 export default {
+    props:['data','isActive'],
     data() {
         return {
-            post:{
-                title:"title number one",
-                description: 'title number onetitle number onetitle number onetitle number onetitle number onetitle number onetitle number one'
-            }
+            post: this.data,
         }
-    }
+    },
+    methods: {
+        changeTitle(){
+            this.post.title = "change the title";
+        }
+    },
 }
 </script>
+
+<style scoped>
+    h3{
+        color:red;
+    }
+</style>
