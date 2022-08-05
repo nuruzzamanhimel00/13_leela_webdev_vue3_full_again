@@ -1,6 +1,8 @@
 <template>
     <div :class="{'background-gray' : isActive }" class="p-2">
-        <single-post :user="user" />
+    
+        <single-post  />
+
         <h3>{{ post.title }}  </h3>
         <p> {{ post.description }} {{ isActive }} </p>
         <a href="" @click.prevent="changeTitle()" >Change Title</a>
@@ -30,7 +32,7 @@ export default {
             required: false,
             default: 1
         },
-        user: String
+      
     },
     data() {
         return {
