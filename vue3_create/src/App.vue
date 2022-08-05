@@ -65,6 +65,7 @@
     provide(){
       return {
         user: computed(() => this.user),
+        changeUserCustomEvent: this.changeUser,
       }
     },
     components:{
@@ -72,8 +73,13 @@
       SelectComponent
     },
     methods: {
-      changeUser(){
-        this.user = "Update Md Nurezzaman Himel";
+      changeUser(user){
+        if(user){
+          this.user = user;
+        }else{
+           this.user = "Update Md Nurezzaman Himel";
+        }
+       
       },
       onChangeTitle(key){
         this.posts[key].title = 'change title in the parent';
