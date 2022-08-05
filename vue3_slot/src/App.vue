@@ -9,7 +9,19 @@
       <button-component> 
         <i class="fas fa-user-plus"></i> &nbsp; Hello Profile;
       </button-component>
-
+      <br>
+      <hr>
+      <profile-card> 
+          <template v-slot:header>
+            This is Header Section
+          </template>
+          <template v-slot:content>
+            This is content Section
+          </template>
+          <template v-slot:footer>
+            This is footer Section
+          </template>
+      </profile-card>
      
   </div>
 </template>
@@ -17,12 +29,14 @@
 <script>
 import HelloWorld from './components/HelloWorld.vue'
 import ButtonComponent from './components/ButtonComponent.vue'
+import ProfileCard from './components/ProfileCard.vue'
 
 export default {
   name: 'App',
   components: {
     HelloWorld,
-    ButtonComponent
+    ButtonComponent,
+    ProfileCard
   },
   
 }
