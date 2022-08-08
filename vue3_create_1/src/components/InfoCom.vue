@@ -1,6 +1,6 @@
 <template>
     <div>
-        Info Component details
+   <h1>     Info Component details</h1>
 
         <form>
         <div class="form-group">
