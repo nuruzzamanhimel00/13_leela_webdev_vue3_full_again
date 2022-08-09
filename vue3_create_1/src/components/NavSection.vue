@@ -9,13 +9,13 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item">
-                        <router-link :to="{name: 'home'}" class="nav-link">Home </router-link>
+                        <router-link :to="{name: 'home'}" active-class="active" class="nav-link">Home </router-link>
                     </li>
                     <li class="nav-item">
-                        <router-link :to="{name: 'userDetails'}" class="nav-link">Users</router-link>
+                        <router-link :to="{name: 'userDetails'}" active-class="active" class="nav-link">Users</router-link>
                     </li>
                     <li class="nav-item">
-                        <router-link :to="{name: 'userCreate'}" class="nav-link">User Create</router-link>
+                        <router-link :to="{name: 'userCreate'}" active-class="active" class="nav-link">User Create</router-link>
                     </li>
                 
                 </ul>
@@ -24,3 +24,11 @@
             </nav>
     </div>
 </template>
+
+<style scoped>
+    .exact-active{
+        background: green;
+        color: #fff !important;
+        font-weight: bold;
+    }
+</style>
