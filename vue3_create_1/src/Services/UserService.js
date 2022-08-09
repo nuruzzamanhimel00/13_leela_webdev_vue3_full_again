@@ -22,6 +22,8 @@ function UserCreate(data){
     // console.log(data);
 }
 
+
+
 export const UserService = {
     UserCreate,
 }
