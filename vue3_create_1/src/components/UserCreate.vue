@@ -38,6 +38,7 @@ export default {
                 'password' : this.password
             };
          UserService.UserCreate(data);
+            this.$router.push({ name: 'userDetails' });
         }
     },
 }

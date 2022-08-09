@@ -2,13 +2,12 @@
   <div>
     <div class="container">
     <div class="row">
-      <div class="col-md-4">
-        <user-create> </user-create>
+      <div class="col-md-12">
+        <nav-section> </nav-section>
+       <router-view></router-view> 
+       Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet rem, perferendis, facilis magni esse amet cupiditate, laboriosam dignissimos sit excepturi architecto dolore minima. Cum id, doloremque iusto quae nulla nam?
       </div>
-      <div class="col-md-4">
-        <user-detail> </user-detail>
-      </div>
-      <div class="col-md-4"></div>
+     
     </div>
       
     </div>
@@ -17,14 +16,8 @@
 
 <script>
 
-import { defineAsyncComponent } from 'vue'
+import NavSection from '@/components/NavSection.vue'
 
-const UserCreate = defineAsyncComponent(() =>
-  import('./components/UserCreate.vue')
-)
-const UserDetail = defineAsyncComponent(() =>
-  import('./components/UserDetails.vue')
-)
 export default {
   name:'App',
   data() {
@@ -33,12 +26,12 @@ export default {
     }
   },
   components:{
-  
-    UserCreate,
-    UserDetail
+    NavSection
+    
 
   },
   methods: { 
+
   },
 }
 </script>

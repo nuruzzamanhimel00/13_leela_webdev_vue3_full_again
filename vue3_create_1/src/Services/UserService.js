@@ -14,6 +14,7 @@ function UserCreate(data){
         })
             .then(response => {
                 alert(response.data.message);
+             
                 resolve(response.data);
             })
             // .catch(error => console.log("error = ",error))
