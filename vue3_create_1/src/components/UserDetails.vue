@@ -1,19 +1,24 @@
 <template>
     <div>
-        <h1>Get User Details</h1>
+        <h1>Get User Edit</h1>
         <table class="table">
   <thead>
     <tr>
       <th scope="col">#</th>
       <th scope="col">Name</th>
       <th scope="col">Email</th>
+      <th scope="col">Action</th>
     </tr>
   </thead>
   <tbody>
     <tr v-for="(value, key) in userDetails" :key="key">
       <th scope="row">{{key+1}}</th>
       <td>{{value.name}}</td>
-      <td>{{value.email}}</td>
+      <td>{{value.email}} {{ value.id }}</td>
+      <td>
+        <router-link :to="{name: 'userShow', params:{id:value.id} }" class="btn btn-success">Edit</router-link>
+        <a href="" class="btn btn-danger" @click.prevent="onDeleteUser(value.id)" >Delete</a>
+      </td>
     </tr>
   </tbody>
 </table>
@@ -51,6 +56,18 @@ export default {
                 this.userDetails.push(usersDetails[0].data[key]);
             }
  
+        },
+        onDeleteUser(id){
+             axios.delete(apiRoutes.SINGLE_USER+`/${id}`,  {
+                headers: ApiHeader.getHeaderWithoutAuth()
+            })
+            .then(response => {
+                console.log(response.data);
+                 this.onGetUsers();
+            //    alert(response.data.message);
+              
+            })
+            .catch(error => console.log("error = ",error))
         }
     },
 }
