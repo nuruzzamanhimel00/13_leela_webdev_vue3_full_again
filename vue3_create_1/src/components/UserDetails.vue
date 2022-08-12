@@ -1,27 +1,36 @@
 <template>
     <div>
         <h1>Get User Edit</h1>
-        <table class="table">
-  <thead>
-    <tr>
-      <th scope="col">#</th>
-      <th scope="col">Name</th>
-      <th scope="col">Email</th>
-      <th scope="col">Action</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr v-for="(value, key) in userDetails" :key="key">
-      <th scope="row">{{key+1}}</th>
-      <td>{{value.name}}</td>
-      <td>{{value.email}} {{ value.id }}</td>
-      <td>
-        <router-link :to="{name: 'userShow', params:{id:value.id} }" class="btn btn-success">Edit</router-link>
-        <a href="" class="btn btn-danger" @click.prevent="onDeleteUser(value.id)" >Delete</a>
-      </td>
-    </tr>
-  </tbody>
-</table>
+        <div class="row">
+            <div class="col-md-8">
+                <table class="table">
+                    <thead>
+                        <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr v-for="(value, key) in userDetails" :key="key">
+                        <th scope="row">{{key+1}}</th>
+                        <td>{{value.name}}</td>
+                        <td>{{value.email}} {{ value.id }}</td>
+                        <td>
+                            <router-link :to="{name: 'userShow', params:{id:value.id} }" class="btn btn-success">Edit</router-link>
+                            <a href="" class="btn btn-danger" @click.prevent="onDeleteUser(value.id)" >Delete</a>
+                            <router-link :to="{name:'singleUserDetails',  params:{id:value.id} }" class="btn btn-info"  >Show User</router-link>
+                        </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="col-md-4">
+                <router-view> </router-view>
+            </div>
+        </div>
+        
     </div>
 </template>
 
@@ -33,7 +42,9 @@ import ApiHeader from '../Helpers/Api'
 export default {
     data() {
         return {
-            userDetails:[]
+            userDetails:[],
+            usernName:'',
+            userEmail:'',
         }
     },
     created(){
@@ -69,7 +80,8 @@ export default {
               
             })
             .catch(error => console.log("error = ",error))
-        }
+        },
+       
     },
 }
 </script>

@@ -3,6 +3,7 @@ import HomeComp from '../components/HomeCom.vue'
 import UserCreateComp from '../components/UserCreate.vue'
 import UserDetailsComp from '../components/UserDetails.vue'
 import UserShowComp from '../components/UserShow.vue'
+import SingleUserDetailsComp from '../components/SingleUserDetails.vue'
 
 const routes = [
     { 
@@ -16,9 +17,17 @@ const routes = [
         name: 'userCreate' 
     },
     { 
-        path: '/user-details', 
+        path: '/user-details/', 
         component: UserDetailsComp, 
-        name: 'userDetails' 
+        name: 'userDetails',
+        children:[
+            {
+                path: ':id', 
+                component: SingleUserDetailsComp, 
+                name:'singleUserDetails',
+                props:true
+            }
+        ] 
     },
     { 
         path: '/user-details/:id', 
