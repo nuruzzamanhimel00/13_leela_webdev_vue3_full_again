@@ -11,6 +11,8 @@
                 <input type="email" class="form-control" id="exampleInputEmail1" v-model="email">
             </div>
             <button type="submit" class="btn btn-primary">Submit</button>
+            &nbsp; 
+            <router-link class="btn btn-primary"  :to="{ name: 'userDetails'}" >GO back Users List </router-link>
         </form>
     </div>
 </template>
