@@ -7,5 +7,12 @@ history: createWebHistory(process.env.BASE_URL),
   mode:'history',
   linkActiveClass: "active",
   linkExactActiveClass: "exact-active",
-})
+});
+
+router.beforeEach((to, from, next) => {
+  console.log(to, from);
+  next();
+  // return false
+});
+
 export default router
