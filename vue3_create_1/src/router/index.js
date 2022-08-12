@@ -10,7 +10,7 @@ history: createWebHistory(process.env.BASE_URL),
 });
 
 router.beforeEach((to, from, next) => {
-  console.log(to, from);
+  console.log('Global before each router');
   next();
   // return false
 });

@@ -50,6 +50,15 @@ export default {
     created(){
         this.onGetUsers();
     },
+    beforeRouteEnter(to, from){
+        console.log('beforeRouteEnter:-',to, from);
+    },
+    beforeRouteUpdate(to, from){
+        console.log('beforeRouteUpdate:-',to, from);
+    },
+    beforeRouteLeave(to, from){
+        console.log('beforeRouteLeave:-',to, from);
+    },
     methods: {
         onGetUsers(){
              axios.get(apiRoutes.GET_ALL_USERS,  {
