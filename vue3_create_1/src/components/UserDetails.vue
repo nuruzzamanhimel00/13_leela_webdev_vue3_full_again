@@ -52,6 +52,7 @@ export default {
   
         },
         makeUserDetails(usersDetails){
+            this.userDetails = [];
             for (let key in usersDetails[0].data) {
                 this.userDetails.push(usersDetails[0].data[key]);
             }
@@ -62,7 +63,7 @@ export default {
                 headers: ApiHeader.getHeaderWithoutAuth()
             })
             .then(response => {
-                console.log(response.data);
+                alert(response.data.message);
                  this.onGetUsers();
             //    alert(response.data.message);
               
