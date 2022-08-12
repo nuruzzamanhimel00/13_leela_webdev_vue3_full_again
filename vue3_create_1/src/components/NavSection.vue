@@ -12,6 +12,9 @@
                         <router-link :to="{name: 'home'}" active-class="active" class="nav-link">Home </router-link>
                     </li>
                     <li class="nav-item">
+                        <router-link :to="{name: 'RedirectComp'} " active-class="active" class="nav-link">Redirect</router-link>
+                    </li>
+                    <li class="nav-item">
                         <router-link :to="{name: 'userDetails'}" active-class="active" class="nav-link">Users</router-link>
                     </li>
                     <li class="nav-item">

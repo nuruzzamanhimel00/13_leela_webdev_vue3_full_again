@@ -4,6 +4,8 @@ import UserCreateComp from '../components/UserCreate.vue'
 import UserDetailsComp from '../components/UserDetails.vue'
 import UserShowComp from '../components/UserShow.vue'
 import SingleUserDetailsComp from '../components/SingleUserDetails.vue'
+import RedirectComp from '../components/RedirectCom.vue'
+import NotFound from '../components/notFound.vue'
 
 const routes = [
     { 
@@ -15,6 +17,12 @@ const routes = [
         path: '/user-create', 
         component: UserCreateComp, 
         name: 'userCreate' 
+    },
+    {
+        path: '/user-redirect', 
+        component: RedirectComp, 
+        name: 'RedirectComp',
+        redirect:'/'
     },
     { 
         path: '/user-details/', 
@@ -34,6 +42,7 @@ const routes = [
         component: UserShowComp, 
         name: 'userShow' 
     },
+    { path: '/:pathMatch(.*)*', name: 'NotFound', component: NotFound },
 ]
 
 export default routes;
