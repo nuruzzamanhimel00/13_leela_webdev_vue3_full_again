@@ -45,12 +45,18 @@ export default {
             userDetails:[],
             usernName:'',
             userEmail:'',
+            hi:"Hello himel"
         }
     },
     created(){
         this.onGetUsers();
     },
-    beforeRouteEnter(to, from){
+    beforeRouteEnter(to, from, next){
+        next( vm => {
+            // access to component public instance via `vm`
+            console.log(vm.hi);
+        });
+        // console.log(this.hi);
         console.log('beforeRouteEnter:-',to, from);
     },
     beforeRouteUpdate(to, from){

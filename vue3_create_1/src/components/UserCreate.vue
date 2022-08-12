@@ -27,8 +27,19 @@ export default {
         return {
             name:'',
             email:'',
-            password:''
+            password:'',
+            hi:"Hello himel"
         }
+    },
+      beforeRouteEnter(to, from){
+        console.log(this.hi);
+        console.log('beforeRouteEnter:-',to, from);
+    },
+    beforeRouteUpdate(to, from){
+        console.log('beforeRouteUpdate:-',to, from);
+    },
+    beforeRouteLeave(to, from){
+        console.log('beforeRouteLeave:-',to, from);
     },
     methods: {
         onUserCreate(){
