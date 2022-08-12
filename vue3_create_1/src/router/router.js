@@ -6,6 +6,7 @@ import UserShowComp from '../components/UserShow.vue'
 import SingleUserDetailsComp from '../components/SingleUserDetails.vue'
 import RedirectComp from '../components/RedirectCom.vue'
 import NotFound from '../components/notFound.vue'
+import NotUserComp from '../components/NotUserComp.vue'
 
 const routes = [
     { 
@@ -28,7 +29,13 @@ const routes = [
         path: '/user-details/', 
         component: UserDetailsComp, 
         name: 'userDetails',
+        redirect:{  name: 'NotUsser'},
         children:[
+            {
+                path: '', 
+                component: NotUserComp, 
+                name:'NotUsser',
+            },
             {
                 path: ':id', 
                 component: SingleUserDetailsComp, 
