@@ -31,7 +31,9 @@ export default {
         onCountIncrement(){
             // this.$store.state.count++;
             // this.$store.commit('increment',5);
-            this.$store.commit('increment',{value:5});
+            // this.$store.commit('increment',{value:5});
+
+            this.$store.dispatch('increment',{value:5});
         }
     },
     computed:{

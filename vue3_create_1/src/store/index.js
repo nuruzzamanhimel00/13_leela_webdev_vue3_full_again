@@ -46,7 +46,10 @@ const store = createStore({
      }
     },
     actions:{
-
+      async increment(context, payload){
+        console.log(context);
+        context.commit('increment', payload);
+      }
     }
   });
 
