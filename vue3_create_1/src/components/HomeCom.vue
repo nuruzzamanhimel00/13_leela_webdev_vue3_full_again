@@ -3,13 +3,10 @@
     <h1>{{ getCcountResult }}</h1>
     <a href="" class="btn btn-warning btn-sm" v-on:click.prevent="onCountIncrement()" >Count Increment</a>
     <hr>
-    <br>
-        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptatibus veniam voluptate ducimus. Sapiente dolor quia, iste voluptatem blanditiis iusto laborum minus earum libero excepturi cum mollitia omnis aliquid voluptates commodi.
-        <a href="" class="btn btn-success" @click.prevent="goToThePost()">
-            Go to the Post
-        </a>
-        <br>
-        <hr>
+    <p>To do list done cout: ( {{ doneTodolistCount }} )</p>
+    <hr>
+    <todolist-comp> </todolist-comp>
+    <hr>
         <CountComp> </CountComp>
     </div>
 </template>
@@ -21,6 +18,9 @@ import { defineAsyncComponent } from 'vue'
 // simple usage
 const CountComp = defineAsyncComponent(() =>
   import('./CountComp.vue')
+)
+const TodolistComp = defineAsyncComponent(() =>
+  import('./TodolistComp.vue')
 )
 
 export default {
@@ -35,10 +35,11 @@ export default {
         }
     },
     computed:{
-        ...mapGetters(['getCcountResult'])
+        ...mapGetters(['getCcountResult','doneTodolistCount'])
     },
     components:{
-        CountComp
+        CountComp,
+        TodolistComp,
     }
 }
 </script>
