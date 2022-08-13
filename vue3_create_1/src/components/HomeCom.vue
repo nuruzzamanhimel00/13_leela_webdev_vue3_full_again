@@ -2,6 +2,7 @@
     <div>
     <h1>{{ getCcountResult }}</h1>
     <a href="" class="btn btn-warning btn-sm" v-on:click.prevent="onCountIncrement()" >Count Increment</a>
+    <hr>
     <br>
         Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptatibus veniam voluptate ducimus. Sapiente dolor quia, iste voluptatem blanditiis iusto laborum minus earum libero excepturi cum mollitia omnis aliquid voluptates commodi.
         <a href="" class="btn btn-success" @click.prevent="goToThePost()">
@@ -28,7 +29,9 @@ export default {
             this.$router.push({name: 'userDetails',query:{id:1} });
         },
         onCountIncrement(){
-            this.$store.state.count++;
+            // this.$store.state.count++;
+            // this.$store.commit('increment',5);
+            this.$store.commit('increment',{value:5});
         }
     },
     computed:{
