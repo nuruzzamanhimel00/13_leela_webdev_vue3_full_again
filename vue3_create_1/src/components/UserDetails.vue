@@ -51,20 +51,20 @@ export default {
     created(){
         this.onGetUsers();
     },
-    beforeRouteEnter(to, from, next){
-        next( vm => {
-            // access to component public instance via `vm`
-            console.log(vm.hi);
-        });
-        // console.log(this.hi);
-        console.log('beforeRouteEnter:-',to, from);
-    },
-    beforeRouteUpdate(to, from){
-        console.log('beforeRouteUpdate:-',to, from);
-    },
-    beforeRouteLeave(to, from){
-        console.log('beforeRouteLeave:-',to, from);
-    },
+    // beforeRouteEnter(to, from, next){
+    //     next( vm => {
+    //         // access to component public instance via `vm`
+    //         console.log(vm.hi);
+    //     });
+    //     // console.log(this.hi);
+    //     console.log('beforeRouteEnter:-',to, from);
+    // },
+    // beforeRouteUpdate(to, from){
+    //     console.log('beforeRouteUpdate:-',to, from);
+    // },
+    // beforeRouteLeave(to, from){
+    //     console.log('beforeRouteLeave:-',to, from);
+    // },
     methods: {
         onGetUsers(){
              axios.get(apiRoutes.GET_ALL_USERS,  {
