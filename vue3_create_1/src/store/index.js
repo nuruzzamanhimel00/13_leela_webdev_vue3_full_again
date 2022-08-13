@@ -6,7 +6,9 @@ const store = createStore({
       count: 20
     },
     getters:{
-
+        getCcountResult(state){
+            return state.count;
+        }
     },
     mutations: {
      
