@@ -1,9 +1,9 @@
 <template>
     <div>
-    <h1>{{ getCcountResult }}</h1>
+    <h1>Cpunter:--{{ getCcountResult }} -- {{ countValue }}</h1>
     <a href="" class="btn btn-warning btn-sm" v-on:click.prevent="onCountIncrement()" >Count Increment</a>
     &nbsp;
-        <a href="" class="btn btn-warning btn-sm" v-on:click.prevent="onCountIncrementActionA()" >Count Action A Incsrement</a>
+        <!-- <a href="" class="btn btn-warning btn-sm" v-on:click.prevent="onCountIncrementActionA()" >Count Action A Incsrement</a> -->
     <hr>
     <p>To do list done cout: ( {{ doneTodolistCount }} )</p>
     <hr>
@@ -13,7 +13,7 @@
     </div>
 </template>
 <script>
-import {mapGetters, mapActions} from 'vuex'
+import {mapGetters, mapActions, mapState} from 'vuex'
 
 import { defineAsyncComponent } from 'vue'
 
@@ -26,8 +26,17 @@ const TodolistComp = defineAsyncComponent(() =>
 )
 
 export default {
+       computed:{
+        ...mapGetters('counter',['getCcountResult','doneTodolistCount']),
+         ...mapState({
+            countValue: state => state.counter.count
+        }),
+    },
     methods:{
-        ...mapActions({
+        ...mapActions('counter',{
+            incrementValue:'increment'
+        }),
+        ...mapActions('counter',{
             incrementValue:'increment'
         }),
         goToThePost(){
@@ -39,23 +48,21 @@ export default {
             // this.$store.commit('increment',{value:5});
 
             // this.$store.dispatch('increment',{value:5});
-            
+
             this.incrementValue({value:5});
         },
-        onCountIncrementActionA(){
-            // this.$store.dispatch('actionA').then( (response) => {
-            //     console.log("response console");
-            //     console.log(response);
-            // } );
-            this.$store.dispatch('actionB').then( (response) => {
-                console.log("response console");
-                console.log(response);
-            } );
-        }
+        // onCountIncrementActionA(){
+        //     // this.$store.dispatch('actionA').then( (response) => {
+        //     //     console.log("response console");
+        //     //     console.log(response);
+        //     // } );
+        //     this.$store.dispatch('actionB').then( (response) => {
+        //         console.log("response console");
+        //         console.log(response);
+        //     } );
+        // }
     },
-    computed:{
-        ...mapGetters(['getCcountResult','doneTodolistCount'])
-    },
+ 
     components:{
         CountComp,
         TodolistComp,

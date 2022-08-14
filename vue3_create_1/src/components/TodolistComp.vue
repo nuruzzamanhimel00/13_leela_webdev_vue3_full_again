@@ -29,7 +29,7 @@
     </div>
 </template>
 <script>
-import {mapGetters, mapMutations} from 'vuex'
+import {mapGetters, mapMutations, mapState} from 'vuex'
 export default {
     data(){
         return{
@@ -37,10 +37,13 @@ export default {
         }
     },
       computed:{
-        ...mapGetters(['getTodoLists','doneTodolistCount','getDoneTodoLists','getSelectedTodo'])
+        ...mapState({
+            getTodoLists: state => state.todos.todos
+        }),
+        ...mapGetters('todos',['doneTodolistCount','getDoneTodoLists','getSelectedTodo'])
     },
     methods:{
-        ...mapMutations(['SELECT_TODOLIST_BYID']),
+        ...mapMutations('todos',['SELECT_TODOLIST_BYID']),
         onSelectToDoList(id){
             this.SELECT_TODOLIST_BYID(id);
             // console.log(id);

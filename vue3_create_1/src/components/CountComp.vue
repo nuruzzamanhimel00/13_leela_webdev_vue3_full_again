@@ -14,7 +14,7 @@ export default {
         }
     },
      computed:{
-        ...mapGetters(['getCcountResult'])
+        ...mapGetters('counter',['getCcountResult'])
     },
 }
 </script>
