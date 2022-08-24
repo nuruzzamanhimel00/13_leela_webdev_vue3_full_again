@@ -1,5 +1,8 @@
 const todosModule= {
+
+    
     namespaced:true,
+
     state:{
        
       todos:[
