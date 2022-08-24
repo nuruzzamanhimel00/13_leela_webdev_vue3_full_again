@@ -1,4 +1,4 @@
-export default {
+const counterModule = {
     namespaced:true,
     state:{
         count: 20,
@@ -38,4 +38,4 @@ export default {
     }
 };
 
-// export default counterModule;
+export default counterModule;
