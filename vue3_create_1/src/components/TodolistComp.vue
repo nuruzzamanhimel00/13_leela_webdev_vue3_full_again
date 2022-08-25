@@ -30,6 +30,7 @@
 </template>
 <script>
 import {mapGetters, mapMutations, mapState} from 'vuex'
+import {} from '../store/Modules/storeconstance.js'
 export default {
     data(){
         return{

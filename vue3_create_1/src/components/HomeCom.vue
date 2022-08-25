@@ -16,7 +16,7 @@
 import {mapGetters, mapActions, mapState} from 'vuex'
 
 import { defineAsyncComponent } from 'vue'
-
+import {COUNTER_INCREMENT} from '../store/Modules/storeconstance.js'
 // simple usage
 const CountComp = defineAsyncComponent(() =>
   import('./CountComp.vue')
@@ -33,12 +33,15 @@ export default {
         }),
     },
     methods:{
+        // ...mapActions('counter',{
+        //     incrementValue:'increment'
+        // }),
         ...mapActions('counter',{
-            incrementValue:'increment'
+            incrementValue: COUNTER_INCREMENT
         }),
-        ...mapActions('counter',{
-            incrementValue:'increment'
-        }),
+        // ...mapActions('counter',{
+        //     incrementValue:'increment'
+        // }),
         goToThePost(){
             this.$router.push({name: 'userDetails',query:{id:1} });
         },

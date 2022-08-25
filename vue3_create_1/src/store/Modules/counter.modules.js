@@ -1,3 +1,5 @@
+import { COUNTER_INCREMENT, COUNTER_ON_INCREMENT } from "./storeconstance";
+
 const counterModule = {
     namespaced:true,
     state:{
@@ -9,21 +11,25 @@ const counterModule = {
         },
     },
     mutations:{
-        increment(state,payload){
+        [COUNTER_ON_INCREMENT](state,payload){
             // state.count = state.count + payload;
             state.count = state.count + payload.value;
          },
+        // increment(state,payload){
+        //     // state.count = state.count + payload;
+        //     state.count = state.count + payload.value;
+        //  },
     },
     actions:{
-        async increment(context, payload){
+        async [COUNTER_INCREMENT](context, payload){
             // console.log(context);
-            context.commit('increment', payload);
+            context.commit(COUNTER_ON_INCREMENT, payload);
           },
           actionA(context){
             // return new Promise((resolve, reject) => {
             return new Promise((resolve) => {
               setTimeout(() => {
-                context.commit('increment', {value:3});
+                context.commit(COUNTER_ON_INCREMENT, {value:3});
                 resolve("Promise success response return");
               }, 2000);
             });
