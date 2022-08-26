@@ -3,7 +3,7 @@
         <div class="card">
             <div class="card-body">
                 <div class="card-title">
-                    <h1>Login</h1>
+                    <h1>Login: {{firstName}}</h1>
                 </div>
                 <form>
                     <div class="form-group">
@@ -25,3 +25,19 @@
         </div>
     </div>
 </template>
+
+<script>
+import {mapState} from 'vuex'
+export default {
+    data(){
+        return{
+
+        }
+    },
+    computed:{
+        ...mapState('auth',{
+            firstName: state => state.firstName
+        }),
+    }
+}
+</script>
