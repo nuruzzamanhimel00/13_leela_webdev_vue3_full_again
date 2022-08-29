@@ -3,7 +3,7 @@
         <div class="card">
             <div class="card-body">
                 <div class="card-title">
-                    <h1>Login: {{firstName}}</h1>
+                    <h1>Login: </h1>
                 </div>
                 <form @submit.prevent="onLoginSubmit()">
                     <div class="form-group">
@@ -52,3 +52,9 @@ export default {
     
 }
 </script>
+
+<style scoped>
+.error{
+    color:red;
+}
+</style>
