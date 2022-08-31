@@ -1,4 +1,4 @@
-import {SIGNUP_ACTION} from './../../storeconstants.js';
+import {SET_USER_TOKEN_DATA_MUTATION, SIGNUP_ACTION} from './../../storeconstants.js';
 import axios from 'axios'
 import {ApiRoute} from '../../../Helpers/ApiRoute.js'
 
@@ -12,7 +12,14 @@ export default {
         }
       await axios.post(ApiRoute.register_url, postData)
           .then( (response) => {
-            console.log(response);
+            if(response.status == 200){
+              context.commit(SET_USER_TOKEN_DATA_MUTATION,{
+                email: response.data.email,
+                userId: response.data.userId,
+                accessToken: response.data.access_token,
+              })
+            }
+            // console.log(response);
           })
           .catch(function (error) {
             console.log(error);
