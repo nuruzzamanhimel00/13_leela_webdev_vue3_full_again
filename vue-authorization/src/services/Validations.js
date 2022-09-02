@@ -18,4 +18,12 @@ export default class Validations{
         }
         return true;
     }
+
+    static getErrorMessageFromCode(errorMsg){
+        switch (errorMsg) {
+            case "The given data was invalid.":
+            return "Email Already Taken";
+            
+        }
+    }
 }

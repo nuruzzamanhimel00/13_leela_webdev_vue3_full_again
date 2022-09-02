@@ -5,7 +5,10 @@
                 <div class="card-title">
                     <h1>Signup:</h1>
                 </div>
-                <form @submit.prevent="onLoginSubmit()">
+                <div class="alert alert-danger" v-if="error">
+                    {{ error }}
+                </div>
+                <form @submit.prevent="onSingupSubmit()">
                  <div class="form-group">
                         <label for="exampleInputEmail1">Name</label>
                         <input type="text" class="form-control" v-model="form.name" id="exampleInputname1" aria-describedby="nameHelp">
@@ -43,13 +46,26 @@ export default {
                 password:'',
             },
             errors:[],
+            error:'',
         }
     },
+    // beforeRouteEnter(_, _1 ,next){
+    //     console.log('before route enter');
+    //     next(vm => {
+    //          console.log(vm.$store.state.auth);
+    //     })
+        
+    // },
+    // beforeRouteLeave(){
+    //     console.log('before route leave');
+    //     console.log(this.$store.state.auth);
+    // },
     methods:{
         ...mapActions('auth',{
             signup_action: SIGNUP_ACTION
         }),
-        onLoginSubmit(){
+        onSingupSubmit(){
+            this.error = "";
             //email and password validation
             let validaiton = new SignupValidation(this.form.email, this.form.password);
             this.errors = validaiton.chcekValidation();
@@ -65,6 +81,9 @@ export default {
                name: this.form.name,
                email: this.form.email,
                password: this.form.password 
+            }).catch(error =>{
+                this.error = error;
+                // console.log(error);
             });
             // console.log(this.errors);
         }
