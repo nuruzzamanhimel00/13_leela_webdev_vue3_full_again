@@ -35,8 +35,8 @@
 
 <script>
 import SignupValidation from '../../services/SignupValidation.js'
-import {mapActions} from 'vuex'
-import {SIGNUP_ACTION} from '../../store/storeconstants.js'
+import {mapActions, mapMutations} from 'vuex'
+import { LOADING_SPINING_SHOW_MUTATION, SIGNUP_ACTION} from '../../store/storeconstants.js'
 export default {
     data(){
         return{
@@ -64,7 +64,10 @@ export default {
         ...mapActions('auth',{
             signup_action: SIGNUP_ACTION
         }),
-        onSingupSubmit(){
+        ...mapMutations({
+            showLoading: LOADING_SPINING_SHOW_MUTATION
+        }),
+        async onSingupSubmit(){
             this.error = "";
             //email and password validation
             let validaiton = new SignupValidation(this.form.email, this.form.password);
@@ -72,20 +75,25 @@ export default {
             // if(this.errors.length > 0){
             //     return false;
             // }
-           
+
             if('email' in this.errors || 'password' in this.errors){
                 // console.log(this.errors);
                 return false;
             }
-            this.signup_action({
+
+            this.showLoading(true);
+
+            await this.signup_action({
                name: this.form.name,
                email: this.form.email,
                password: this.form.password 
             }).catch(error =>{
                 this.error = error;
-                // console.log(error);
+                this.showLoading(false);
             });
+
             // console.log(this.errors);
+            this.showLoading(false);
         }
     }
     
