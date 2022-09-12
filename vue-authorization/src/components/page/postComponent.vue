@@ -10,10 +10,10 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                <th scope="row">1</th>
-                <td>Mark</td>
-                <td>Otto</td>
+                <tr v-for="(value, key) in fetchAllPost" :key="key">
+                <th scope="row">{{key+1}}</th>
+                <td>{{value.title}}</td>
+                <td>{{value.description}}</td>
                 <td>@mdo</td>
                 </tr>
                 
@@ -22,23 +22,29 @@
     </div>
 </template>
 <script>
-// import axios from 'axios'
-// export default {
-//     name:'postComponent',
-//     data(){
-//         return{
+import {mapActions, mapGetters} from 'vuex'
+import {FETCH_ALL_POST, GET_ALL_POST_ACTION} from '../../store/storeconstants.js'
+export default {
+    name:'postComponent',
+    data(){
+        return{
 
-//         }
-//     },
-//     created(){
-//         this.getAllPost();
-//     },
-//     methods:{
-//         getAllPost(){
-
-//         }
-//     }
-// }
+        }
+    },
+    created(){
+        this.getAllPost();
+    },
+    computed:{
+         ...mapGetters('post',{
+            fetchAllPost: FETCH_ALL_POST
+        }),
+    },
+    methods:{
+       ...mapActions('post',{
+            getAllPost: GET_ALL_POST_ACTION
+        }),
+    }
+}
 </script>
 <style scoped>
 

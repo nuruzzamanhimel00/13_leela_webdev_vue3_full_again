@@ -1,11 +1,15 @@
+//action
 export const SIGNUP_ACTION = '[action] signup user';
 export const LOGIN_ACTION = '[action] login user action';
+export const GET_ALL_POST_ACTION = '[action] get all post action';
 
 //mutaitons
 export const  SIGNUP_STATUS = '[mutaion] action status';
+export const SET_ALL_POST = '[mutaion] set all post';
 
 //getters
 export const USER_SINGUP_GETTER = '[getter] user siginup';
+export const FETCH_ALL_POST = '[getter] get all post data';
 
 export const SET_USER_TOKEN_DATA_MUTATION = '[mutation] set user token data';
 

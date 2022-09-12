@@ -3,6 +3,7 @@ import axios from 'axios'
 import {ApiRoute} from '../../../Helpers/ApiRoute.js'
 import Validations from './../../../services/Validations';
 import Storage from '../../../storage/Storage.js'
+import router from '../../../router/index.js'
 
 export default {
     async [LOGIN_ACTION](context, payload){
@@ -22,6 +23,7 @@ export default {
             userId: response.data.userId,
             accessToken: response.data.access_token,
           });
+          router.push({name: 'postComp'});
           // context.commit(LOADING_SPINING_SHOW_MUTATION,false,{root:true});
         }
       })
