@@ -8,6 +8,9 @@
                 <div class="alert alert-danger" v-if="error">
                     {{ error }}
                 </div>
+                <div class="alert alert-success" v-if="actionStatus">
+                    Sign up Successfully
+                </div>
                 <form @submit.prevent="onSingupSubmit()">
                  <div class="form-group">
                         <label for="exampleInputEmail1">Name</label>
@@ -35,7 +38,7 @@
 
 <script>
 import SignupValidation from '../../services/SignupValidation.js'
-import {mapActions, mapMutations} from 'vuex'
+import {mapActions, mapMutations, mapState} from 'vuex'
 import { LOADING_SPINING_SHOW_MUTATION, SIGNUP_ACTION} from '../../store/storeconstants.js'
 export default {
     data(){
@@ -60,12 +63,17 @@ export default {
     //     console.log('before route leave');
     //     console.log(this.$store.state.auth);
     // },
+    computed:{
+        ...mapState('auth',{
+            actionStatus: (state) => state.status
+        })
+    },
     methods:{
         ...mapActions('auth',{
             signup_action: SIGNUP_ACTION
         }),
         ...mapMutations({
-            showLoading: LOADING_SPINING_SHOW_MUTATION
+            showLoading: LOADING_SPINING_SHOW_MUTATION,
         }),
         async onSingupSubmit(){
             this.error = "";

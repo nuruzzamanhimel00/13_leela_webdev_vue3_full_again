@@ -9,6 +9,8 @@ export default {
         email:'',
         userId:'',
         accessToken:'test',
+        status:false,
+        access_token:''
 
     },
     getters: getters,
