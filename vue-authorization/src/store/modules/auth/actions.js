@@ -4,8 +4,24 @@ import {ApiRoute} from '../../../Helpers/ApiRoute.js'
 import Validations from './../../../services/Validations';
 import Storage from '../../../storage/Storage.js'
 import router from '../../../router/index.js'
+import Api from '../../../Helpers/Api.js'
 
 export default {
+    onLogout(context){
+      axios.post(ApiRoute.logout_url,{},{
+        headers: Api.getHeaderWitAuth()
+      }).then((response)=>{
+        if(response.status == 200){
+          Storage.removeAccessTokenFromLocalStorage();
+          context.commit(SET_USER_TOKEN_DATA_MUTATION,{
+            email: null,
+            userId: null,
+            accessToken: null,
+          });
+          router.push({name: 'loginComp'});
+        }
+      })
+    },
     async [LOGIN_ACTION](context, payload){
       let postData = {
           email: payload.email,

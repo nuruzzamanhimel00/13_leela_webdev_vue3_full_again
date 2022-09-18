@@ -10,6 +10,7 @@ export const SET_ALL_POST = '[mutaion] set all post';
 //getters
 export const USER_SINGUP_GETTER = '[getter] user siginup';
 export const FETCH_ALL_POST = '[getter] get all post data';
+export const USER_IS_AUTHONTICATED_CHECK = '[getter] user is authonticated check';
 
 export const SET_USER_TOKEN_DATA_MUTATION = '[mutation] set user token data';
 

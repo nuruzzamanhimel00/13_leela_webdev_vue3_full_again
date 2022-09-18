@@ -6,6 +6,10 @@ class Storage{
     getAccessToken(){
         return JSON.parse( localStorage.getItem('access_token') )
     }
+
+    removeAccessTokenFromLocalStorage(){
+        localStorage.removeItem('access_token');
+    }
 }
 
 export default new Storage;

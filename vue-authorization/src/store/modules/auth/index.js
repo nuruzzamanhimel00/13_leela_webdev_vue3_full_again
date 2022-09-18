@@ -8,9 +8,8 @@ export default {
     state: {
         email:'',
         userId:'',
-        accessToken:'test',
+        accessToken:'',
         status:false,
-        access_token:''
 
     },
     getters: getters,
