@@ -2,6 +2,7 @@
 export const SIGNUP_ACTION = '[action] signup user';
 export const LOGIN_ACTION = '[action] login user action';
 export const GET_ALL_POST_ACTION = '[action] get all post action';
+export const ACCESS_TOKEN_WISE_AUTHORIZATION_CHECK = '[action] access token wise authorizaion check';
 
 //mutaitons
 export const  SIGNUP_STATUS = '[mutaion] action status';

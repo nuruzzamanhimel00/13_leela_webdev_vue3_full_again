@@ -17,9 +17,11 @@
 </template>
 
 <script>
+import {ACCESS_TOKEN_WISE_AUTHORIZATION_CHECK} from './store/storeconstants.js'
+
 import navComp from './components/TheNavbarComponent.vue'
 import theLoader from './components/TheLoaderComponent.vue'
-import {mapState} from 'vuex'
+import {mapState, mapActions} from 'vuex'
 
 export default {
   name: 'App',
@@ -31,6 +33,14 @@ export default {
   components: {
     navComp,
     theLoader
+  },
+  mounted(){
+    this.accessTokenWiseAuthorizaion();
+  },
+  methods:{
+    ...mapActions('auth',{
+      accessTokenWiseAuthorizaion: ACCESS_TOKEN_WISE_AUTHORIZATION_CHECK
+    })
   }
 }
 </script>

@@ -1,4 +1,4 @@
-import { LOGIN_ACTION, SET_USER_TOKEN_DATA_MUTATION, SIGNUP_ACTION} from './../../storeconstants.js';
+import { ACCESS_TOKEN_WISE_AUTHORIZATION_CHECK, LOGIN_ACTION, SET_USER_TOKEN_DATA_MUTATION, SIGNUP_ACTION} from './../../storeconstants.js';
 import axios from 'axios'
 import {ApiRoute} from '../../../Helpers/ApiRoute.js'
 import Validations from './../../../services/Validations';
@@ -21,6 +21,23 @@ export default {
           router.push({name: 'loginComp'});
         }
       })
+    },
+    async [ACCESS_TOKEN_WISE_AUTHORIZATION_CHECK](context){
+        let accessToken = Storage.getAccessToken();
+        await axios.get(ApiRoute.auth_user,{
+          headers: Api.getHeaderWitAuth()
+        }).then((response)=>{
+          if(response.status == 200){
+
+            context.commit(SET_USER_TOKEN_DATA_MUTATION,{
+              email: response.data.email,
+              userId: response.data.id,
+              accessToken: accessToken,
+            });
+            router.push({name: 'hompComp'});
+          }
+        })
+        
     },
     async [LOGIN_ACTION](context, payload){
       let postData = {
