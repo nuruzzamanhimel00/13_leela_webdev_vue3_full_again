@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <iv id="app">
+            <h2>{{message}}</h2>
+            <h2>{{data.commonMessage}}</h2>
+
+            <div>
+                <input type="text" ref="userText" />
+                <button @click="setText">Set Text</button>
+
+                <div>{{textMessage}}</div>
+            </div>
+        </iv>
+
+        <hr />
+        <h1>App2 Instance</h1>
+        <div id="app2">
+            <h2>{{anotherMessage}}</h2>
+            <h2>{{data.commonMessage}}</h2>
+            <a href="" @click.prevent="changeMessage()">Change common message</a>
+        </div>
+    </div>
+    <script src="https://unpkg.com/vue@3"></script>
+    <script src="app.js" ></script>
+</body>
+</html>
