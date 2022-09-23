@@ -14,6 +14,7 @@ const router = createRouter({
 // })
 
 router.beforeEach((to, from, next) => {
+  // console.log(to.meta.auth);
   if( "auth" in to.meta && to.meta.auth && !store.getters[`auth/${USER_IS_AUTHONTICATED_CHECK}`]){
     next('/login')
   }
