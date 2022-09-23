@@ -1,4 +1,4 @@
-import { ACCESS_TOKEN_WISE_AUTHORIZATION_CHECK, LOGIN_ACTION, SET_USER_TOKEN_DATA_MUTATION, SIGNUP_ACTION} from './../../storeconstants.js';
+import { ACCESS_TOKEN_WISE_AUTHORIZATION_CHECK, AUTO_LOGIN_ACCESSTOKEN_MUTAION, LOGIN_ACTION, SET_USER_TOKEN_DATA_MUTATION, SIGNUP_ACTION} from './../../storeconstants.js';
 import axios from 'axios'
 import {ApiRoute} from '../../../Helpers/ApiRoute.js'
 import Validations from './../../../services/Validations';
@@ -24,6 +24,7 @@ export default {
     },
     async [ACCESS_TOKEN_WISE_AUTHORIZATION_CHECK](context){
         let accessToken = Storage.getAccessToken();
+        context.commit(AUTO_LOGIN_ACCESSTOKEN_MUTAION,accessToken);
         await axios.get(ApiRoute.auth_user,{
           headers: Api.getHeaderWitAuth()
         }).then((response)=>{
@@ -35,6 +36,8 @@ export default {
               accessToken: accessToken,
             });
             router.push({name: 'hompComp'});
+          }else{
+            context.commit(AUTO_LOGIN_ACCESSTOKEN_MUTAION,null);
           }
         })
         

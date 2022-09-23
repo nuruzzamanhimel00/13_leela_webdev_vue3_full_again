@@ -21,7 +21,7 @@ import {ACCESS_TOKEN_WISE_AUTHORIZATION_CHECK} from './store/storeconstants.js'
 
 import navComp from './components/TheNavbarComponent.vue'
 import theLoader from './components/TheLoaderComponent.vue'
-import {mapState, mapActions} from 'vuex'
+import {mapState} from 'vuex'
 
 export default {
   name: 'App',
@@ -38,9 +38,12 @@ export default {
     this.accessTokenWiseAuthorizaion();
   },
   methods:{
-    ...mapActions('auth',{
-      accessTokenWiseAuthorizaion: ACCESS_TOKEN_WISE_AUTHORIZATION_CHECK
-    })
+    accessTokenWiseAuthorizaion(){
+      this.$store.dispatch(`auth/${ACCESS_TOKEN_WISE_AUTHORIZATION_CHECK}`);
+    }
+    // ...mapActions('auth',{
+    //   accessTokenWiseAuthorizaion: ACCESS_TOKEN_WISE_AUTHORIZATION_CHECK
+    // })
   }
 }
 </script>
