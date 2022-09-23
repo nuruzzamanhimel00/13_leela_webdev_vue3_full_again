@@ -20,8 +20,16 @@
 import {ACCESS_TOKEN_WISE_AUTHORIZATION_CHECK} from './store/storeconstants.js'
 
 import navComp from './components/TheNavbarComponent.vue'
-import theLoader from './components/TheLoaderComponent.vue'
+
 import {mapState} from 'vuex'
+
+
+// import theLoader from './components/TheLoaderComponent.vue'
+import { defineAsyncComponent } from 'vue'
+// simple usage
+const theLoader = defineAsyncComponent(() =>
+  import(/*webpackChunkname: theLoader*/'./components/TheLoaderComponent.vue')
+)
 
 export default {
   name: 'App',

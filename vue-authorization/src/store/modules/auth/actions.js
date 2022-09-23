@@ -24,7 +24,7 @@ export default {
     },
     async [ACCESS_TOKEN_WISE_AUTHORIZATION_CHECK](context){
         let accessToken = Storage.getAccessToken();
-        context.commit(AUTO_LOGIN_ACCESSTOKEN_MUTAION,accessToken);
+        context.commit(AUTO_LOGIN_ACCESSTOKEN_MUTAION,{payload: accessToken});
         await axios.get(ApiRoute.auth_user,{
           headers: Api.getHeaderWitAuth()
         }).then((response)=>{
