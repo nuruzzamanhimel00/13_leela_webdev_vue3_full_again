@@ -9,6 +9,11 @@ const app = Vue.createApp({
         }
     },
     watch:{
+        count(newValue){
+            if(newValue > 5){
+                this.count = 0;
+            }
+        }
         // name(){
         //     this.fullName = this.name + " " + this.lname;
         // },
