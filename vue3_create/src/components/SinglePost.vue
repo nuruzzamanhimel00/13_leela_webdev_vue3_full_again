@@ -13,9 +13,9 @@ export default {
         postData:{
             type: Object,
             required: true,
-            default: function(){
+            default(){
                 return {
-                    title:"title number one",
+                    title:"title number one test one",
                     description: 'this is desciption here'
                 }
             }
