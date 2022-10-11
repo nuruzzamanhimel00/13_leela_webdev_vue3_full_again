@@ -15,15 +15,18 @@ export default {
             required: true,
             default(){
                 return {
-                    title:"title number one test one",
-                    description: 'this is desciption here'
+                    title:"title number one test oneoneoneoneoneoneoneone",
+                    description: 'this is desciption hereherehereherehere'
                 }
             }
         },
         isActive:{
             type: Number,
             required: false,
-            default: 1
+            default: 1,
+            validator(value) {
+                return value == 1 || value == 2 ;
+            }
         }
     },
     data() {

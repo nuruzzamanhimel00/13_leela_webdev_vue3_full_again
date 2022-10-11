@@ -15,7 +15,7 @@
           <br>
             <a href="" @click.prevent="onChangeTitle(key)" >Change Title App vue parent</a>
 
-            <compSinglePost :post-data="post" :isActive="1" />
+            <compSinglePost :post-data="post" :is-active="1" />
 
           </div>
         </div>
