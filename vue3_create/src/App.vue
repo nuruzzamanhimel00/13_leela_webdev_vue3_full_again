@@ -65,6 +65,7 @@
     provide(){
       return {
         user: computed(() => this.user),
+       
       }
     },
     components:{
@@ -72,7 +73,7 @@
       SelectComponent
     },
     methods: {
-      changeUser(){
+     changeUser(){
         this.user = "Update Md Nurezzaman Himel";
       },
       onChangeTitle(key){

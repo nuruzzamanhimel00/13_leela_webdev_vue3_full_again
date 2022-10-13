@@ -1,6 +1,6 @@
 <template>
     <div :class="{'background-gray' : isActive }" class="p-2">
-        <single-post :user="user" />
+        <post-user  />
         <h3>{{ post.title }}  </h3>
         <p> {{ post.description }} {{ isActive }} </p>
         <a href="" @click.prevent="changeTitle()" >Change Title</a>
@@ -9,7 +9,7 @@
 
 <script>
 
-import SinglePost from './PostUser.vue'
+import PostUser from './PostUser.vue'
 
 export default {
     // props:['postData','isActive'],
@@ -44,7 +44,7 @@ export default {
         }
     },
     components:{
-        SinglePost
+        PostUser
     }
 }
 </script>
