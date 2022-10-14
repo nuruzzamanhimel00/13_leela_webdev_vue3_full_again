@@ -14,7 +14,8 @@
                 <label for="exampleInputPassword1">Password</label>
                 <input type="password" class="form-control" id="exampleInputPassword1" v-model="password">
             </div>
-            <button type="submit" class="btn btn-primary">Submit</button>
+            <button v-if="loadSubmit" type="submit" class="btn btn-primary" :class="{'button_disabled':loadSubmit}">Loading...</button>
+            <button v-else type="submit" class="btn btn-primary">Submit</button>
         </form>
     </div>
 </template>
@@ -27,18 +28,39 @@ export default {
         return {
             name:'',
             email:'',
-            password:''
+            password:'',
+            loadSubmit:false,
         }
     },
     methods: {
+       
         onUserCreate(){
+            this.loadSubmit = true;
             let data = {
                 'name' : this.name,
                 'email' : this.email,
                 'password' : this.password
             };
-         UserService.UserCreate(data);
+    
+         UserService.UserCreate(data).then(()=>{
+            this.loadSubmit = false;
+            this.formReset();
+         }).catch((error)=>{
+            alert(error);
+         });
+        },
+        formReset(){
+            this.name=null;
+            this.email=null;
+            this. password=null;
         }
     },
 }
 </script>
+<style scoped>
+.button_disabled{
+  border: 1px solid #999999;
+  background-color: #cccccc;
+  color: #666666;
+}
+</style>

@@ -4,7 +4,7 @@ import ApiHeader from '@/Helpers/Api'
 
 function UserCreate(data){
 
-    return new Promise((resolve) => {
+    return new Promise((resolve, reject) => {
         return axios.post(apiRoutes.USER_CREATE_POST, {
             'name' : data.name,
             'email' : data.email,
@@ -14,10 +14,15 @@ function UserCreate(data){
         })
             .then(response => {
                 alert(response.data.message);
-                resolve(response.data);
+                resolve(response);
             })
-            // .catch(error => console.log("error = ",error))
-            .catch(error => alert(error))
+            .catch(error => {
+                reject(error);
+            })
+            .finally(function (re) {
+                // always executed
+                resolve(re);
+              });
     });
     // console.log(data);
 }
