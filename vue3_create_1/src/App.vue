@@ -49,16 +49,16 @@ import { defineAsyncComponent } from 'vue'
 // import ModalDialog from './components/ModalDialog.vue'
 
 const HomeComp = defineAsyncComponent(() =>
-  import('./components/HomeCom.vue')
+  import(/*homeCOmpoenet */'./components/HomeCom.vue')
 )
 const AboutComp = defineAsyncComponent(() =>
-  import('./components/AboutCom.vue')
+  import(/*AboutComp */'./components/AboutCom.vue')
 )
 const DetailsComp = defineAsyncComponent(() =>
-  import('./components/DetailsCom.vue')
+  import(/*DetailsComp */'./components/DetailsCom.vue')
 )
 const InfoComp = defineAsyncComponent(() =>
-  import('./components/InfoCom.vue')
+  import(/*InfoComp */'./components/InfoCom.vue')
 )
 
 const ModalDialog = defineAsyncComponent(() =>
