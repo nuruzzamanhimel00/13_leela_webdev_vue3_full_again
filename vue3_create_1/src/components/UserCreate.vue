@@ -37,7 +37,9 @@ export default {
                 'email' : this.email,
                 'password' : this.password
             };
-         UserService.UserCreate(data);
+         UserService.UserCreate(data).then(()=>{
+            this.$emit('getAllUserDetailsFlug',true);
+         });
         }
     },
 }

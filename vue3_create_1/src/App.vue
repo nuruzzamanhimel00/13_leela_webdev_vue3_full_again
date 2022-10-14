@@ -3,10 +3,13 @@
     <div class="container">
     <div class="row">
       <div class="col-md-4">
-        <user-create> </user-create>
+        <user-create @getAllUserDetailsFlug="ongetAllUserDetailsFlug($event)"> </user-create>
       </div>
       <div class="col-md-4">
-        <user-detail> </user-detail>
+        <user-detail :user-created-flug="getAllUserDetails"  
+         @getAllUserDetailsFlug="ongetAllUserDetailsFlug($event)"
+        > </user-detail>
+       
       </div>
       <div class="col-md-4"></div>
     </div>
@@ -29,7 +32,7 @@ export default {
   name:'App',
   data() {
     return {
- 
+      getAllUserDetails:false,
     }
   },
   components:{
@@ -39,6 +42,9 @@ export default {
 
   },
   methods: { 
+    ongetAllUserDetailsFlug(event){
+      this.getAllUserDetails = event;
+    }
   },
 }
 </script>

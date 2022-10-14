@@ -26,6 +26,7 @@ import {apiRoutes} from '../Helpers/apiRoute.js'
 import ApiHeader from '../Helpers/Api'
 
 export default {
+    props:['userCreatedFlug'],
     data() {
         return {
             userDetails:[]
@@ -33,6 +34,14 @@ export default {
     },
     created(){
         this.onGetUsers();
+    },
+    watch:{
+        userCreatedFlug(){
+            if(this.userCreatedFlug ==true){
+                this.onGetUsers();
+                this.$emit('getAllUserDetailsFlug',!this.userCreatedFlug);
+            }
+        }
     },
     methods: {
         onGetUsers(){
@@ -47,6 +56,7 @@ export default {
   
         },
         makeUserDetails(usersDetails){
+            this.userDetails = [];
             for (let key in usersDetails[0].data) {
                 this.userDetails.push(usersDetails[0].data[key]);
             }
