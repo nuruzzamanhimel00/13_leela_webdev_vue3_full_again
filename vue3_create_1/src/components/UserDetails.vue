@@ -22,8 +22,8 @@
 
 <script>
 import axios from "axios";
-import {apiRoutes} from '../Helpers/apiRoute.js'
-import ApiHeader from '../Helpers/Api'
+// import {apiRoutes} from '../Helpers/apiRoute.js'
+// import ApiHeader from '../Helpers/Api'
 
 export default {
     props:['userCreatedFlug'],
@@ -45,9 +45,9 @@ export default {
     },
     methods: {
         onGetUsers(){
-             axios.get(apiRoutes.GET_ALL_USERS,  {
-                headers: ApiHeader.getHeaderWithoutAuth()
-            })
+            //  axios.get(apiRoutes.GET_ALL_USERS
+             axios.get('users'
+            )
             .then(response => {
                 // console.log(response.data);
                 this.makeUserDetails(response.data);
