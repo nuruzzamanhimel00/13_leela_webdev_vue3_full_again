@@ -4,7 +4,7 @@ import routes from './router.js'
 const router = createRouter({
 history: createWebHistory(process.env.BASE_URL),
   routes,
-  mode:'history',
+  mode:'history',  
   linkActiveClass: "active",
   linkExactActiveClass: "exact-active",
 })
