@@ -43,7 +43,6 @@ export default {
             .then(response => {
                 this.name = response.data.data.name;
                 this.email = response.data.data.email;
-                this.name = response.data.data.name;
             })
             .catch(error => console.log("error = ",error))
         },
