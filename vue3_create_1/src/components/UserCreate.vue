@@ -1,6 +1,6 @@
 <template>
     <div>
-    <h1>Create User:--</h1>
+    <h1>Create User:-- </h1>
         <form @submit.prevent="onUserCreate()">
             <div class="form-group">
                 <label for="nameId">Name</label>
@@ -29,6 +29,9 @@ export default {
             email:'',
             password:''
         }
+    },
+    created:{
+       
     },
     methods: {
         onUserCreate(){

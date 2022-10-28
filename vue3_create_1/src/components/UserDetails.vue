@@ -1,6 +1,6 @@
 <template>
     <div>
-        <h1>Get User Details</h1>
+        <h1>Get User Details {{   $route.query.id }} </h1>
         <table class="table">
   <thead>
     <tr>
