@@ -31,7 +31,7 @@ export default {
          id: {
             handler(newValue) {
                 // this will be run immediately on component creation.
-                 this.ShowUser(newValue);
+                this.ShowUser(newValue);
                 console.log("newValue=",newValue);
             },
             // force eager callback execution
