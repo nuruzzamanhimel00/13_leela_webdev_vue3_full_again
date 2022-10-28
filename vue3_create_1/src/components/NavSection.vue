@@ -26,7 +26,7 @@
 </template>
 
 <style scoped>
-    .exact-active{
+    .active {
         background: green;
         color: #fff !important;
         font-weight: bold;
