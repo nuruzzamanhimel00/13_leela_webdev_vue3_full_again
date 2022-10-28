@@ -22,11 +22,20 @@ export default {
         }
     },
     mounted(){
-        this.ShowUser(this.userId);
+        // this.ShowUser(this.userId);
     },
     watch:{
-        id(){
-            this.ShowUser(this.id);
+        // id(){
+        //     this.ShowUser(this.id);
+        // },
+         id: {
+            handler(newValue) {
+                // this will be run immediately on component creation.
+                 this.ShowUser(newValue);
+                console.log("newValue=",newValue);
+            },
+            // force eager callback execution
+            immediate: true
         }
     },
     created(){
