@@ -7,17 +7,27 @@ import SingleUserDetailsComp from '../components/SingleUserDetails.vue'
 import RedirectComp from '../components/RedirectCom.vue'
 import NotFound from '../components/notFound.vue'
 import NotUserComp from '../components/NotUserComp.vue'
+import UserCreate from '@/components/footer/userCreate.vue'
+import DefaultFooter from '@/components/footer/defaultFooter.vue'
+import NavSection from '@/components/NavSection.vue'
 
 const routes = [
     { 
         path: '/', 
-        component: HomeComp, 
-        name: 'home' 
+        // component: HomeComp, 
+        name: 'home' ,
+        components: { 
+            default: HomeComp,
+            footer: DefaultFooter,
+            navigation: NavSection
+        },
+
     },
     {
         path: '/user-create', 
-        component: UserCreateComp, 
-        name: 'userCreate' 
+        // component: UserCreateComp, 
+        name: 'userCreate' ,
+        components: { default: UserCreateComp, footer: UserCreate,navigation: NavSection },
     },
     {
         path: '/user-redirect', 
