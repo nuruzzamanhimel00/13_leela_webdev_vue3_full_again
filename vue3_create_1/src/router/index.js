@@ -11,7 +11,13 @@ history: createWebHistory(process.env.BASE_URL),
 
 router.beforeEach((to, from, next) => {
   console.log(to, from);
-  next();
+  if(to.path == '/user-details/'){
+    next({name:'singleUserDetails',params:{id:53}});
+  }else{
+    next();
+  }
+ 
+  // next();
   // return false
 });
 

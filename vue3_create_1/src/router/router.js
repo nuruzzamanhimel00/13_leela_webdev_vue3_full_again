@@ -31,13 +31,15 @@ const routes = [
     },
     {
         path: '/user-redirect', 
-        component: RedirectComp, 
+        // component: RedirectComp, 
+        components: { default: RedirectComp, footer: UserCreate,navigation: NavSection },
         name: 'RedirectComp',
         redirect:'/'
     },
     { 
         path: '/user-details/', 
-        component: UserDetailsComp, 
+        // component: UserDetailsComp, 
+        components: { default: UserDetailsComp, footer: UserCreate,navigation: NavSection },
         name: 'userDetails',
         redirect:{  name: 'NotUsser'},
         children:[
