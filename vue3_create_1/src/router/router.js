@@ -18,11 +18,7 @@ const routes = [
         path: '/user-create', 
         component: UserCreateComp, 
         name: 'userCreate' ,
-        beforeEnter: (to, from) => {
-            console.log("before enter", to, from)
-        // // reject the navigation
-        // return false
-        },
+       
     },
     {
         path: '/user-redirect', 
@@ -35,6 +31,9 @@ const routes = [
         component: UserDetailsComp, 
         name: 'userDetails',
         redirect:{  name: 'NotUsser'},
+        beforeEnter: () => {
+            console.log('beofere enter console for each Router');
+        },
         children:[
             {
                 path: '', 

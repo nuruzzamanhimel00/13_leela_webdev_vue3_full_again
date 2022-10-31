@@ -45,12 +45,16 @@ export default {
             userDetails:[],
             usernName:'',
             userEmail:'',
+            myName:'himel',
         }
     },
     created(){
         this.onGetUsers();
     },
-    beforeRouteEnter(to, from){
+    beforeRouteEnter(to, from, next){
+         next(vm => {
+            console.log(vm.myName);
+        })
         console.log('beforeRouteEnter:-',to, from);
     },
     beforeRouteUpdate(to, from){

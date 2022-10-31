@@ -15,4 +15,8 @@ router.beforeEach((to, from, next) => {
   // return false
 });
 
+router.afterEach(() => {
+  console.log('Global after each router');
+})
+
 export default router
