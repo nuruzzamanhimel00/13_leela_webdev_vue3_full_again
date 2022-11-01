@@ -7,6 +7,7 @@ import SingleUserDetailsComp from '../components/SingleUserDetails.vue'
 import RedirectComp from '../components/RedirectCom.vue'
 import NotFound from '../components/notFound.vue'
 import NotUserComp from '../components/NotUserComp.vue'
+import loadMore from '@/components/loadMore.vue'
 
 const routes = [
     { 
@@ -14,6 +15,7 @@ const routes = [
         component: HomeComp, 
         name: 'home' 
     },
+ 
     {
         path: '/user-create', 
         component: UserCreateComp, 
@@ -52,6 +54,11 @@ const routes = [
         path: '/user-details/:id', 
         component: UserShowComp, 
         name: 'userShow' 
+    },
+    { 
+        path: '/load-more', 
+        component: loadMore, 
+        name: 'loadMore' 
     },
     { path: '/:pathMatch(.*)*', name: 'NotFound', component: NotFound },
 ]

@@ -20,6 +20,9 @@
                     <li class="nav-item">
                         <router-link :to="{name: 'userCreate'}" active-class="active" class="nav-link">User Create</router-link>
                     </li>
+                    <li class="nav-item">
+                        <router-link :to="{name: 'loadMore'}" active-class="active" class="nav-link">Load More</router-link>
+                    </li>
                 
                 </ul>
                 
