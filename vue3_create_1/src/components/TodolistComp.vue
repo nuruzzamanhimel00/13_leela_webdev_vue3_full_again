@@ -13,10 +13,16 @@
         <hr>
 
         <h2>Selectd TO list</h2>
-        <ul v-if="getSelectedTodo !== null">
+        <!-- <ul v-if="getSelectedTodo !== null">
         <li>{{getSelectedTodo.id}}</li>
         <li>{{getSelectedTodo.text}}</li>
         <li>{{getSelectedTodo.done}}</li>
+        </ul> -->
+   
+        <ul v-if="id !== null">
+        <li>{{getSelectedTodoList.id}}</li>
+        <li>{{getSelectedTodoList.text}}</li>
+        <li>{{getSelectedTodoList.done}}</li>
         </ul>
         <br>
         <hr>
@@ -33,16 +39,20 @@ import {mapGetters, mapMutations} from 'vuex'
 export default {
     data(){
         return{
-
+            id: null,
         }
     },
       computed:{
-        ...mapGetters(['getTodoLists','doneTodolistCount','getDoneTodoLists','getSelectedTodo'])
+        ...mapGetters(['getTodoLists','doneTodolistCount','getDoneTodoLists','getSelectedTodo']),
+        getSelectedTodoList(){
+            return this.$store.getters.getTodoById(this.id);
+        }
     },
     methods:{
         ...mapMutations(['SELECT_TODOLIST_BYID']),
         onSelectToDoList(id){
-            this.SELECT_TODOLIST_BYID(id);
+            // this.SELECT_TODOLIST_BYID(id);
+            this.id = id;
             // console.log(id);
         }
     }

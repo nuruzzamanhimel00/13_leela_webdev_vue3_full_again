@@ -32,7 +32,12 @@ const store = createStore({
 
         getSelectedTodo(state){
           return state.seletedTodo;
+        },
+       
+        getTodoById: (state) => (id) => {
+          return state.todos.find( (todo) => todo.id == id );
         }
+       
     },
     mutations: {
      increment(state,payload){
