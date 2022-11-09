@@ -2,6 +2,8 @@
     <div>
     <h1>{{ getCcountResult }}</h1>
     <a href="" class="btn btn-warning btn-sm" v-on:click.prevent="onCountIncrement()" >Count Increment</a>
+    <br>
+    <a href="" class="btn btn-warning btn-sm" v-on:click.prevent="onCountIncrementActionA()" >Count Action A</a>
     <hr>
     <p>To do list done cout: ( {{ doneTodolistCount }} )</p>
     <hr>
@@ -34,6 +36,13 @@ export default {
             // this.$store.commit('increment',{value:5});
 
             this.$store.dispatch('increment',{value:5});
+        },
+        onCountIncrementActionA(){
+            // this.$store.dispatch('actionA').then((response)=>{
+            //     console.log('calling the success');
+            //     console.log(response);
+            // });
+            this.$store.dispatch('actionB');
         }
     },
     computed:{

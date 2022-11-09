@@ -49,8 +49,26 @@ const store = createStore({
       async increment(context, payload){
         console.log(context);
         context.commit('increment', payload);
+      },
+      actionA(context){
+        return new Promise((resolve)=>{
+          setTimeout(()=>{
+            context.commit('increment', {value:1});
+            resolve('nuruzzaman himel');
+          },2000);
+        });
+      },
+      actionB(context){
+        context.dispatch('actionA').then((response)=>{
+          console.log('call success in action B');
+          console.log(response);
+        }).catch((error)=>{
+          console.log(error);
+        });
       }
-    }
+  
+    },
+   
   });
 
   export default store;
