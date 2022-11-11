@@ -28,7 +28,7 @@ const TodolistComp = defineAsyncComponent(() =>
 export default {
        computed:{
         ...mapGetters('counter',['getCcountResult']),
-        ...mapGetters('counter',{
+        ...mapGetters('todos',{
             doneTodoCount:'doneTodolistCount'
         }),
         //  ...mapState({

@@ -13,10 +13,15 @@
         <hr>
 
         <h2>Selectd TO list</h2>
-        <ul v-if="getSelectedTodo !== null">
+        <!-- <ul v-if="getSelectedTodo !== null">
         <li>{{getSelectedTodo.id}}</li>
         <li>{{getSelectedTodo.text}}</li>
         <li>{{getSelectedTodo.done}}</li>
+        </ul> -->
+        <ul v-if="todoList !== null">
+        <li>{{todoList.id}}</li>
+        <li>{{todoList.text}}</li>
+        <li>{{todoList.done}}</li>
         </ul>
         <br>
         <hr>
@@ -33,20 +38,28 @@ import {mapGetters, mapMutations, mapState} from 'vuex'
 export default {
     data(){
         return{
-
+           todoList: null,
         }
     },
       computed:{
-        ...mapState({
-            getTodoLists: state => state.todos.todos
+        // ...mapState({
+        //     getTodoLists: state => state.todos.todos
+        // }),
+        //or
+         ...mapState('todos',{
+            getTodoLists: state => state.todos
         }),
-        ...mapGetters('todos',['doneTodolistCount','getDoneTodoLists','getSelectedTodo'])
+        ...mapGetters('todos',['doneTodolistCount','getDoneTodoLists','getSelectedTodo']),
+        ...mapGetters('todos',{
+            todoListById: 'getTodoListById'
+        }),
     },
     methods:{
         ...mapMutations('todos',['SELECT_TODOLIST_BYID']),
         onSelectToDoList(id){
-            this.SELECT_TODOLIST_BYID(id);
-            // console.log(id);
+            // this.SELECT_TODOLIST_BYID(id);
+            
+            this.todoList = this.todoListById(id);
         }
     }
 }

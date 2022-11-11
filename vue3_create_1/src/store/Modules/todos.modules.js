@@ -12,6 +12,9 @@ const todosModule= {
       seletedTodo:{}
     },
     getters:{
+        getTodoListById:(state)=>(id)=>{
+          return state.todos.find(todo => todo.id === id);
+        },
         getTodoLists(state){
             return state.todos;
         },
@@ -27,7 +30,7 @@ const todosModule= {
 
         getSelectedTodo(state){
           return state.seletedTodo;
-        }
+        },
     },
     mutations:{
       SELECT_TODOLIST_BYID(state, payload){
