@@ -5,7 +5,7 @@
     &nbsp;
         <!-- <a href="" class="btn btn-warning btn-sm" v-on:click.prevent="onCountIncrementActionA()" >Count Action A Incsrement</a> -->
     <hr>
-    <p>To do list done cout: ( {{ doneTodolistCount }} )</p>
+    <p>To do list done cout: ( {{ doneTodolistCount  }} )</p>
     <hr>
     <todolist-comp> </todolist-comp>
     <hr>
@@ -28,6 +28,10 @@ const TodolistComp = defineAsyncComponent(() =>
 export default {
        computed:{
         ...mapGetters('counter',['getCcountResult','doneTodolistCount']),
+        ...mapGetters('todos',{
+            doneTodolistCount:'doneTodolistCount',
+            
+        }),
          ...mapState({
             countValue: state => state.counter.count
         }),
