@@ -43,10 +43,11 @@ export default {
             //email and password validation
             let validaiton = new SignupValidation(this.form.email, this.form.password);
             this.errors = validaiton.chcekValidation();
+            console.log(this.errors);
             if(this.errors.length > 0){
                 return false;
             }
-            // console.log(this.errors);
+            
         }
     }
     
