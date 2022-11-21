@@ -9,6 +9,7 @@ export default {
         email:'',
         userId:'',
         accessToken:'',
+        myname:"Himel"
         
     },
     getters: getters,

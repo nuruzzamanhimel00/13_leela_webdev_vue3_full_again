@@ -48,7 +48,19 @@ export default {
             }
             // console.log(this.errors);
         }
-    }
+    },
+     beforeRouteEnter(_, _1, next) {
+         next(vm => {
+            console.log('beforeRouteEnter =',vm.$store.state.auth.myname, vm.form.email);
+        })
+       
+    },
+    beforeRouteUpdate() {
+       console.log('beforeRouteUpdate =',this.$store.state.auth.myname);
+    },
+    beforeRouteLeave() {
+        console.log('beforeRouteLeave =',this.$store.state.auth.myname);
+    },
     
 }
 </script>
