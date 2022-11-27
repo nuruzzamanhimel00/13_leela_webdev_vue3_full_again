@@ -5,6 +5,7 @@ import Validations from './../../../services/Validations';
 import Storage from '../../../storage/Storage.js'
 import router from '../../../router/index.js'
 import Api from '../../../Helpers/Api.js'
+import { LOADING_SPINING_SHOW_MUTATION } from '@/store/storeconstants';
 
 export default {
     onLogout(context){
@@ -44,6 +45,7 @@ export default {
           email: payload.email,
           password: payload.password,
       }
+      context.commit(LOADING_SPINING_SHOW_MUTATION,true,{root:true});
       await axios.post(ApiRoute.login_url, postData)
       .then( (response) => {
 
@@ -57,12 +59,12 @@ export default {
             accessToken: response.data.access_token,
           });
           router.push({name: 'postComp'});
-          // context.commit(LOADING_SPINING_SHOW_MUTATION,false,{root:true});
+          context.commit(LOADING_SPINING_SHOW_MUTATION,false,{root:true});
         }
       })
       .catch(function (error) {
         let errorMessage = Validations.getErrorMessageFromCode(error.response.data.message);
-        // context.commit(LOADING_SPINING_SHOW_MUTATION,false,{root:true});
+        context.commit(LOADING_SPINING_SHOW_MUTATION,false,{root:true});
         throw errorMessage;
         // console.log(errorMessage ,error);
       });
