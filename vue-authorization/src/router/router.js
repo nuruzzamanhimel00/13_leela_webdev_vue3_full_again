@@ -4,10 +4,10 @@
 // import hompComp from '@/components/page/homeComponent.vue'
 
 //Optimize Routes by Lazy Loading Components
-const loginComp = import(/*webpackChunkname: login*/'@/components/page/loginComponent.vue');
-const signupComp = import('@/components/page/signupComponent.vue');
-const postComp = import('@/components/page/postComponent.vue');
-const hompComp = import('@/components/page/homeComponent.vue');
+const loginComp = () => import(/*webpackChunkname: login*/'@/components/page/loginComponent.vue');
+const signupComp = () => import('@/components/page/signupComponent.vue');
+const postComp = () => import('@/components/page/postComponent.vue');
+const hompComp = () => import('@/components/page/homeComponent.vue');
 
 const routes = [
     { path: '/home', component: hompComp , name: 'hompComp' },
