@@ -2,10 +2,10 @@
   <div>
       Channel name is : {{ channelName }}
       <h1>User Details:</h1>
-      <!-- <p>name: {{userDetais.name}}</p>
-      <p>age: {{userDetais.age}}</p> -->
-      <p>name: {{name}}</p>
-      <p>age: {{age}}</p>
+      <p>name: {{userDetais.name}}</p>
+      <p>age: {{userDetais.age}}</p>
+     <button @click.prevent="onChangeName">Change name</button>
+    
    
   </div>
 </template>
@@ -13,7 +13,7 @@
 <script>
 
 import {ref, reactive, isRef, isReactive } from 'vue'
-import { toRefs } from '@vue/reactivity';
+
 
 export default {
 
@@ -32,20 +32,15 @@ export default {
         console.log(isRef(name));
         console.log(isReactive(userDetais));
 
-        setTimeout(()=>{
-            console.log('settime out in setup console llog');
-            name.value= 'himel';
-            userDetais.name = "modified Nuruzzaman himel";
-            userDetais.age = 100;
+        function onChangeName(){
+            userDetais.name = "Modified name Himel"; 
+        }
 
-        },3000);
-
-        let userRefs = toRefs(userDetais);
     
         return {
             channelName: name,
-            name: userRefs.name,
-            age: userRefs.age
+            userDetais,
+            onChangeName
         }
     }
 
