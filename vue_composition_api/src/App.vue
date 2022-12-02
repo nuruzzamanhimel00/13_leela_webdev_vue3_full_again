@@ -1,8 +1,12 @@
 <template>
   <div>
         <h2>FUll name: {{ fullName }} </h2>
-        <input type="text" @input="changeFirstName($event)"> &nbsp;
-        <input type="text" @input="changeLastName($event)"> ;
+        <input type="text" v-model="firstName" > &nbsp;
+        <input type="text" v-model="lastName" > ;
+        <br>
+        <br>
+        <h1>Age: {{ age }} </h1>
+        <button @click="onUpdateAge">Update Age</button>
         <br>
       Channel name is : {{ channelName }}
       <h1>User Details:</h1>
@@ -16,7 +20,7 @@
 
 <script>
 
-import {ref, reactive, isRef, isReactive, computed } from 'vue'
+import {ref, reactive, isRef, isReactive, computed, watch } from 'vue'
 
 
 export default {
@@ -25,6 +29,7 @@ export default {
         let name = ref("Md Nuruzzaman Himel");
         let firstName = ref('');
         let lastName = ref('');
+        let age=ref(30);
 
         // let userDetais = ref({
         //     name: 'Himel',
@@ -38,16 +43,11 @@ export default {
         const fullName = computed(()=>{
             return firstName.value+ ' '+lastName.value;
         });
+        //watch
 
-
-        function changeFirstName(event){
-            // console.log(firstName, event)
-            firstName.value = event.target.value;
-        }
-        function changeLastName(event){
-            // console.log(lastName, event);
-            lastName.value = event.target.value;
-        }
+        watch([age, firstName, fullName], (newValue, oldValue)=>{
+            console.log(newValue, oldValue);
+        })
 
         console.log(isRef(name));
         console.log(isReactive(userDetais));
@@ -56,14 +56,19 @@ export default {
             userDetais.name = "Modified name Himel"; 
         }
 
+        function onUpdateAge(){
+            age.value = 100
+        }
     
         return {
             channelName: name,
             userDetais,
             onChangeName,
-            changeFirstName,
-            changeLastName,
-            fullName
+            fullName,
+            firstName,
+            lastName,
+            age,
+            onUpdateAge
         }
     }
 
