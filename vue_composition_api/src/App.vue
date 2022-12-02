@@ -8,11 +8,9 @@
         <h1>Age: {{ age }} </h1>
         <button @click="onUpdateAge">Update Age</button>
         <br>
+       
       Channel name is : {{ channelName }}
-      <h1>User Details:</h1>
-      <p>name: {{userDetais.name}}</p>
-      <p>age: {{userDetais.age}}</p>
-     <button @click.prevent="onChangeName">Change name</button>
+         <user-data :user-detais='userDetais' />
     
    
   </div>
@@ -21,10 +19,12 @@
 <script>
 
 import {ref, reactive, isRef, isReactive, computed, watch } from 'vue'
-
+import UserData from './components/UserData.vue'
 
 export default {
-
+    components:{
+        UserData
+    },
     setup(){
         let name = ref("Md Nuruzzaman Himel");
         let firstName = ref('');
