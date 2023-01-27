@@ -1,0 +1,13 @@
+1) import {ref} from 'vue'
+let  res = ref('')
+
+res.value = "himel"
+
+
+2) import { reactive} from 'vue'
+
+let userDetais = reactive({
+            name: 'Himel',
+            age: 30
+        });
+userDetais.name = "Nuruzzaman
