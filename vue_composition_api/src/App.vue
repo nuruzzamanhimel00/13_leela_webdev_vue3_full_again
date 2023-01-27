@@ -15,6 +15,7 @@ export default {
 
         setTimeout(()=>{
             console.log('settime out in setup console llog');
+            console.log(name);
             name.value= 'himel'
         },3000);
         
