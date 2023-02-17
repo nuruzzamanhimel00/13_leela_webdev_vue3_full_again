@@ -12,8 +12,8 @@
 
 <script>
 
-import {ref, reactive, isRef, isReactive } from 'vue'
-import { toRefs } from '@vue/reactivity';
+import {ref, reactive, isRef, isReactive, toRefs } from 'vue'
+
 
 export default {
 
@@ -33,7 +33,7 @@ export default {
         console.log(isReactive(userDetais));
 
         setTimeout(()=>{
-            console.log('settime out in setup console llog');
+            // console.log('settime out in setup console llog');
             name.value= 'himel';
             userDetais.name = "modified Nuruzzaman himel";
             userDetais.age = 100;
