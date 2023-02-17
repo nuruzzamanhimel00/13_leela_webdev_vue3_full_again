@@ -32,7 +32,7 @@ export default {
         console.log(isRef(name));
         console.log(isReactive(userDetais));
 
-        function onChangeName(){
+        const onChangeName = () =>{
             userDetais.name = "Modified name Himel"; 
         }
 
