@@ -10,6 +10,7 @@
 
 <script>
 
+// import {ref} from 'vue'
 import {ref, reactive} from 'vue'
 
 export default {
@@ -29,6 +30,12 @@ export default {
         setTimeout(()=>{
             console.log('settime out in setup console llog');
             name.value= 'himel';
+
+            console.log(userDetais);
+            
+            // userDetais.value.name = "modified Nuruzzaman himel";
+            // userDetais.value.age = 100;
+
             userDetais.name = "modified Nuruzzaman himel";
             userDetais.age = 100;
 
