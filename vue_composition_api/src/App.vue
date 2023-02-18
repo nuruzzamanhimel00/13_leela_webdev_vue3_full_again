@@ -1,9 +1,11 @@
 <template>
   <div>
-        <h2>FUll name: {{ fullName }} </h2>
-        <input type="text" @input="changeFirstName($event)"> &nbsp;
-        <input type="text" @input="changeLastName($event)"> ;
-        <br>
+    <div>
+        <h2>Full name: {{ fullName }} </h2>
+        <input type="text" @input='changeFirstName' placeholder="First name"> &nbsp;
+        <input type="text" @input="changeLastName" placeholder="Last name"> &nbsp;
+    </div>   
+    <br>
       Channel name is : {{ channelName }}
       <h1>User Details:</h1>
       <p>name: {{userDetais.name}}</p>
@@ -34,20 +36,20 @@ export default {
             name: 'Himel',
             age: 30
         });
-        
-        const fullName = computed(()=>{
-            return firstName.value+ ' '+lastName.value;
+
+        const fullName = computed(() =>{
+            return firstName.value+" "+  lastName.value;
         });
-
-
+        
         function changeFirstName(event){
-            // console.log(firstName, event)
+            // console.log(event.target.value)
             firstName.value = event.target.value;
         }
+
         function changeLastName(event){
-            // console.log(lastName, event);
             lastName.value = event.target.value;
         }
+
 
         console.log(isRef(name));
         console.log(isReactive(userDetais));
@@ -62,8 +64,12 @@ export default {
             userDetais,
             onChangeName,
             changeFirstName,
+            firstName,
+            lastName,
             changeLastName,
             fullName
+            
+            
         }
     }
 
