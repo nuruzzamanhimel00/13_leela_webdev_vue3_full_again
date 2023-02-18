@@ -44,7 +44,9 @@ export default {
             return firstName.value+ ' '+lastName.value;
         });
         //watch
-
+        // watch(age, (newValue, oldValue)=>{
+        //     console.log(newValue, oldValue);
+        // })
         watch([age, firstName, fullName], (newValue, oldValue)=>{
             console.log(newValue, oldValue);
         })
@@ -57,7 +59,7 @@ export default {
         }
 
         function onUpdateAge(){
-            age.value = 100
+            age.value = age.value + 1;
         }
     
         return {
@@ -70,7 +72,8 @@ export default {
             age,
             onUpdateAge
         }
-    }
+    },
+    
 
 
 //   name: 'App',
