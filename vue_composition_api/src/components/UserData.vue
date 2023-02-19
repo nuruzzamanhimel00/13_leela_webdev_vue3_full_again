@@ -7,11 +7,14 @@
         <p>age :  {{user.age}} </p>
         <p><i>full Details:- {{ fullDetails }} </i></p>
      <button @click.prevent="onChangeName">Change name</button>
+     <hr>
+     <input type="text" ref="ageref">
+     <button @click.prevent="onChangeAgeHandler" >change age</button>
     </div>
 </template>
 <script>
 import { reactive } from '@vue/reactivity'
-import {computed} from 'vue'
+import {computed, ref} from 'vue'
 
 export default {
     name:"UserData",
@@ -20,7 +23,9 @@ export default {
             required: true
         }
     },
+   
     setup(props){
+        let ageref = ref(null);
        const user = reactive(props.userDetais);
 
         function onChangeName(){
@@ -28,15 +33,22 @@ export default {
             user.age = 50;
         }
 
+        function onChangeAgeHandler(){
+            console.log(ageref.value);
+            user.age = ageref.value.value;
+        }
+
         const fullDetails = computed(()=>{
             return   'Fill Details is ='+user.name+" age ="+user.age;
         });
 
-       console.log(name);
+    //    console.log(name);
        return {
         user,
         onChangeName,
-        fullDetails
+        fullDetails,
+        ageref,
+        onChangeAgeHandler
        }
     }
     // setup(props){
