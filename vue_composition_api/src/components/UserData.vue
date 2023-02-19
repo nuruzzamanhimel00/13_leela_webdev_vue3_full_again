@@ -3,13 +3,17 @@
          <h1>User Details:</h1>
         <!-- <p>name: {{userDetais.name}}</p>
         <p>age: {{userDetais.age}}</p> -->
+        <slot name="header"></slot>
         <p>name: {{ user.name }}</p>
         <p>age :  {{user.age}} </p>
         <p><i>full Details:- {{ fullDetails }} </i></p>
      <button @click.prevent="onChangeName">Change name</button>
      <hr>
      <input type="text" ref="ageref">
-     <button @click.prevent="onChangeAgeHandler" >change age</button>
+     <button @click.prevent="onChangeAgeHandler" >change age</button> 
+     <br>
+     <button @click.prevent="onChangeFNHandler">Change First name</button>
+     <slot></slot>
     </div>
 </template>
 <script>
@@ -24,9 +28,15 @@ export default {
         }
     },
    
-    setup(props){
+    setup(props, context){
         let ageref = ref(null);
        const user = reactive(props.userDetais);
+
+       console.log(context, context.attrs.class);
+
+       function onChangeFNHandler(){
+            context.emit('first-name-change','first name modified...')
+        }
 
         function onChangeName(){
             user.name = "Modified name";
@@ -38,6 +48,8 @@ export default {
             user.age = ageref.value.value;
         }
 
+        
+
         const fullDetails = computed(()=>{
             return   'Fill Details is ='+user.name+" age ="+user.age;
         });
@@ -48,7 +60,8 @@ export default {
         onChangeName,
         fullDetails,
         ageref,
-        onChangeAgeHandler
+        onChangeAgeHandler,
+        onChangeFNHandler
        }
     }
     // setup(props){

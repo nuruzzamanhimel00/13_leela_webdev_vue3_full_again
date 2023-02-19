@@ -9,9 +9,20 @@
         <button @click="onUpdateAge">Update Age</button>
         <br>
        
-      Channel name is : {{ channelName }}
-         <user-data :user-detais='userDetais' />
-    
+        Channel name is : {{ channelName }}
+        
+        <user-data 
+        :user-detais='userDetais'
+         class="hi-himel"
+         @firstNameChange="onFIrstNameChangeHandler"
+          >
+             <template v-slot:header>
+               <h1><i>This is header sloat</i></h1>
+            </template>
+            <h1>This is default slot </h1>
+        </user-data>
+
+
    
   </div>
 </template>
@@ -39,6 +50,11 @@ export default {
             name: 'Himel',
             age: 30
         });
+
+        function onFIrstNameChangeHandler(event){
+            firstName.value = event;
+            // console.log(event);
+        }
         
         const fullName = computed(()=>{
             return firstName.value+ ' '+lastName.value;
@@ -68,7 +84,8 @@ export default {
             firstName,
             lastName,
             age,
-            onUpdateAge
+            onUpdateAge,
+            onFIrstNameChangeHandler
         }
     }
 
