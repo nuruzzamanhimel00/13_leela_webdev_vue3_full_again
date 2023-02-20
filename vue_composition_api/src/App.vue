@@ -1,5 +1,8 @@
 <template>
   <div>
+        <life-cycle v-if="unmuntedToggle" />
+        <button @click="unmuntedToggle = !unmuntedToggle">Life cycle comp unmunted toggle</button>
+        <hr>
         <h2>FUll name: {{ fullName }} </h2>
         <input type="text" v-model="firstName" > &nbsp;
         <input type="text" v-model="lastName" > ;
@@ -31,16 +34,20 @@
 
 import {ref, reactive, isRef, isReactive, computed, watch } from 'vue'
 import UserData from './components/UserData.vue'
+import LifeCycle from './components/LifeCycle.vue'
 
 export default {
     components:{
-        UserData
+        UserData,
+        LifeCycle
     },
     setup(){
         let name = ref("Md Nuruzzaman Himel");
         let firstName = ref('');
         let lastName = ref('');
         let age=ref(30);
+
+        let unmuntedToggle = ref(true);
 
         // let userDetais = ref({
         //     name: 'Himel',
@@ -85,7 +92,8 @@ export default {
             lastName,
             age,
             onUpdateAge,
-            onFIrstNameChangeHandler
+            onFIrstNameChangeHandler,
+            unmuntedToggle
         }
     }
 
