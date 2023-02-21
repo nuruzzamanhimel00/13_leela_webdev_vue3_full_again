@@ -32,7 +32,7 @@ export default {
         let ageref = ref(null);
        const user = reactive(props.userDetais);
 
-       console.log(context, context.attrs.class);
+    //    console.log(context, context.attrs.class);
 
        function onChangeFNHandler(){
             context.emit('first-name-change','first name modified...')

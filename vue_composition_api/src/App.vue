@@ -1,6 +1,6 @@
 <template>
   <div>
-
+        <NavComponent />
         <router-view></router-view>
         <hr>
         <life-cycle v-if="unmuntedToggle" />
@@ -38,11 +38,13 @@
 import {ref, reactive, isRef, isReactive, computed, watch } from 'vue'
 import UserData from './components/UserData.vue'
 import LifeCycle from './components/LifeCycle.vue'
+import NavComponent from './components/NavComponent.vue'
 
 export default {
     components:{
         UserData,
-        LifeCycle
+        LifeCycle,
+        NavComponent
     },
     setup(){
         let name = ref("Md Nuruzzaman Himel");

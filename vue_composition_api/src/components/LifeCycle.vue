@@ -9,8 +9,8 @@
 <script>
 import {onBeforeMount, onMounted, onBeforeUpdate, onUpdated, onBeforeUnmount, onUnmounted} from 'vue'
 import { reactive } from '@vue/reactivity';
-import { onRenderTracked } from '@vue/runtime-core';
-import { onRenderTriggered } from '@vue/runtime-core';
+// import { onRenderTracked } from '@vue/runtime-core';
+// import { onRenderTriggered } from '@vue/runtime-core';
 export default {
     setup () {
 
@@ -19,36 +19,36 @@ export default {
         });
         
         onBeforeMount(()=>{
-            console.log('onBeforeMount funciton call')
+            // console.log('onBeforeMount funciton call')
         });
 
         onMounted(()=>{
-            console.log('onMounted function call');
+            // console.log('onMounted function call');
         });
 
         onBeforeUpdate(()=>{
-            console.log("onBeforeUpdate function call");
+            // console.log("onBeforeUpdate function call");
         });
 
         onUpdated(()=>{
-            console.log("onUpdated function call");
+            // console.log("onUpdated function call");
         });
 
         onBeforeUnmount(()=>{
-            console.log("onBeforeUnmount function call");
+            // console.log("onBeforeUnmount function call");
         });
 
         onUnmounted(()=>{
-            console.log("onUnmounted function call");
+            // console.log("onUnmounted function call");
         });
 
-        onRenderTracked((e)=>{
-            console.log('onRenderTracked',e);
-        });
+        // onRenderTracked((e)=>{
+        //     // console.log('onRenderTracked',e);
+        // });
 
-        onRenderTriggered((e)=>{
-            console.log('onRenderTriggered',e);
-        })
+        // onRenderTriggered((e)=>{
+        //     // console.log('onRenderTriggered',e);
+        // })
 
         return {
             user
