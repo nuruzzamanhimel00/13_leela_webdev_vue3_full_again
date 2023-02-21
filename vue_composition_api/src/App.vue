@@ -1,5 +1,8 @@
 <template>
   <div>
+
+        <router-view></router-view>
+        <hr>
         <life-cycle v-if="unmuntedToggle" />
         <button @click="unmuntedToggle = !unmuntedToggle">Life cycle comp unmunted toggle</button>
         <hr>
