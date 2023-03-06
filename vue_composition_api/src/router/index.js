@@ -3,6 +3,7 @@ import AboutPage from '../pages/AboutPage.vue'
 import PostPage from '../pages/PostPage.vue'
 import ArticlePage from '../pages/ArticlePage.vue'
 import CounterPage from '../pages/CounterPage.vue'
+import MixinPage from '../pages/MixinPage.vue'
 const routes = [
     {
       path: '/',
@@ -32,6 +33,12 @@ const routes = [
       component: ArticlePage,
       name: 'ArticlePage',
       props: true
+
+    },
+    {
+      path: '/mixpage',
+      component: MixinPage,
+      name: 'MixinPage',
 
     },
   ];

@@ -28,6 +28,10 @@
                    <router-link class="nav-link" :to="{name: 'CounterPage' }" >Counter </router-link>
                     
                 </li>
+                <li class="nav-item active">
+                   <router-link class="nav-link" :to="{name: 'MixinPage' }" >Mixin page </router-link>
+                    
+                </li>
                 </ul>
             </div>
             </nav>
