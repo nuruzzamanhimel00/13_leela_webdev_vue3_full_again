@@ -24,6 +24,10 @@
                    <router-link class="nav-link" :to="{name: 'ArticlePage', params: { id: 1 } }" >Article </router-link>
                     
                 </li>
+                <li class="nav-item active">
+                   <router-link class="nav-link" :to="{name: 'CounterPage' }" >Counter </router-link>
+                    
+                </li>
                 </ul>
             </div>
             </nav>
