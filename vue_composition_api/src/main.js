@@ -9,8 +9,11 @@ const router = createRouter({
     routes
 })
 
+import GlobalMixins from '../src/Mixins/Global.mixins.js'
+
 const app = createApp(App);
 app.use(router);
 // Install the store instance as a plugin
 app.use(store)
+app.mixin(GlobalMixins)
 app.mount('#app');

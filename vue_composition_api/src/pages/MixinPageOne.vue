@@ -13,6 +13,9 @@
     export default {
         name:"MixinPageOne",
          mixins:[CounterMixin],
+        mounted(){
+            console.log('component mounted log');
+        }
     }
 </script>
 
